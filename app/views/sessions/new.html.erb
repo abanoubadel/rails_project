@@ -1,21 +1,35 @@
 <% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<p class="login-box-msg">Sign in to start your session</p>
+<%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="form-group has-feedback">
+      <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="form-group has-feedback">
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+    <div class="form-group has-feedback">
+      <div class="row">
+        <div class="col-xs-4">
+          <%= f.submit "Sign In", class: "btn btn-primary btn-block btn-flat" %>
+        </div><!-- /.col -->
+      </div>
+    </div>
+<% end %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+<div class="social-auth-links text-center">
+  <p>- OR -</p>
+  <%= link_to '/auth/facebook', class: "btn btn-block btn-social btn-facebook btn-flat" do %>
+    <i class="fa fa-facebook"></i> Sign in using Facebook
+  <% end %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+  <%= link_to '/auth/google_oauth2', class: "btn btn-block btn-social btn-google btn-flat" do %>
+    <i class="fa fa-google-plus"></i> Sign in using Google+
+  <% end %>
+</div><!-- /.social-auth-links -->
 
-    <p><%= link_to 'Facebook', '/auth/facebook' %></p>
-    <p><%= link_to 'Google', '/auth/google_oauth2' %></p>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
-</div>
+<a href="#">I forgot my password</a><br>
+<%= link_to 'Register a new membership', signup_path, class: 'text-center' %>

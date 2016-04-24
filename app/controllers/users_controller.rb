@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render :layout => 'login_layout'
   end
 
   def create
@@ -29,7 +30,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
-      render 'new'
+      
+      render 'new', :layout => 'login_layout'
     end
   end
 
