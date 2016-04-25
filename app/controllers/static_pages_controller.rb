@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
+  layout 'external_layout'
 
-  def home
+  def index
+#    render :layout => 'login_layout'
   end
 
   def help

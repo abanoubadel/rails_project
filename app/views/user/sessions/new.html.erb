@@ -1,6 +1,6 @@
 <% provide(:title, "Sign in") %>
 <p class="login-box-msg">Sign in to start your session</p>
-<%= form_for(:session, url: sessions_path) do |f| %>
+<%= form_for(:session, url: user_session_path) do |f| %>
     <div class="form-group has-feedback">
       <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -22,7 +22,7 @@
 
 <div class="social-auth-links text-center">
   <p>- OR -</p>
-  <%= link_to '/auth/facebook', class: "btn btn-block btn-social btn-facebook btn-flat" do %>
+  <%= link_to  user_facebook_omniauth_authorize_path , class: "btn btn-block btn-social btn-facebook btn-flat" do %>
     <i class="fa fa-facebook"></i> Sign in using Facebook
   <% end %>
 
@@ -32,4 +32,4 @@
 </div><!-- /.social-auth-links -->
 
 <a href="#">I forgot my password</a><br>
-<%= link_to 'Register a new membership', signup_path, class: 'text-center' %>
+<%= link_to 'Register a new membership', new_user_registration_path, class: 'text-center' %>
