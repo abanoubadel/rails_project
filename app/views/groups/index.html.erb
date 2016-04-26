@@ -1,0 +1,27 @@
+	<h2 class="page-header">Manage Groups <%= link_to "Create New", new_group_path, class:'btn btn-success pull-right' %></h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Group Image</th>
+            <th>Members</th>
+            <th>Image</th>
+            <th>Create Time</th>
+            <th>Action</th>
+       	</tr>
+        <% @groups.each do |group| %>
+	        <tr>
+	        	<td><%= group.name %></td>
+	        	<td><%= group.description %></td>
+	        	<td><%= group.group_image %></td>
+                <td><%= group.users.map {|c| c.name}.join(', ') %></td>
+                <td>
+
+                    
+                </td>
+	        	<td><%= group.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
+	        	<td><%= link_to "Edit", edit_group_path(group), class:'btn btn-primary' %><%= link_to "Delete", group_path(group), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+	        </tr>
+        <% end %>
+
+    </table>

@@ -5,6 +5,8 @@ class CreateGroups < ActiveRecord::Migration
       t.string :description
       t.string :group_image
 
+       t.index :name, :unique => true
+
       t.timestamps null: false
     end
   end

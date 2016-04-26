@@ -1,0 +1,31 @@
+
+<%= form_for (@group) do |f| %>
+  <% if @group.errors.any? %>
+    <% @group.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <div class="form-group">
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+
+    <%= f.label :group_image %>
+    <%= f.text_field :group_image, class: 'form-control' %>
+
+    <%= f.label :members %>
+    <div class="field">
+      <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name) %>
+    </div>
+
+
+  </div>
+  <br>
+  <%= f.submit "Submit", class:'btn btn-primary' %>
+  <%= link_to "Cancle", groups_path, class:'btn btn--default' %>
+  
+<% end %>

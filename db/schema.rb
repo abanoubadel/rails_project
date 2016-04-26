@@ -11,24 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423114159) do
-
-  create_table "activities", force: :cascade do |t|
-    t.integer  "trackable_id",   limit: 4
-    t.string   "trackable_type", limit: 255
-    t.integer  "owner_id",       limit: 4
-    t.string   "owner_type",     limit: 255
-    t.string   "key",            limit: 255
-    t.text     "parameters",     limit: 65535
-    t.integer  "recipient_id",   limit: 4
-    t.string   "recipient_type", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+ActiveRecord::Schema.define(version: 20160425130541) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -38,10 +21,14 @@ ActiveRecord::Schema.define(version: 20160423114159) do
     t.datetime "updated_at",              null: false
   end
 
+  add_index "groups", ["name"], name: "index_groups_on_name", unique: true, using: :btree
+
   create_table "groups_users", id: false, force: :cascade do |t|
     t.integer "user_id",  limit: 4, null: false
     t.integer "group_id", limit: 4, null: false
   end
+
+  add_index "groups_users", ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id", unique: true, using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -99,21 +86,34 @@ ActiveRecord::Schema.define(version: 20160423114159) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "email",           limit: 255
-    t.text     "bio",             limit: 65535
-    t.string   "phone",           limit: 255
+    t.string   "phone",                  limit: 255
+    t.string   "bio",                    limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.integer  "failed_attempts",        limit: 4,   default: 0,  null: false
+    t.string   "unlock_token",           limit: 255
+    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest", limit: 255
-    t.string   "remember_token",  limit: 255
-    t.boolean  "admin",           limit: 1
-    t.string   "provider",        limit: 255
-    t.string   "uid",             limit: 255
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "items", "restaurants"
   add_foreign_key "orders", "restaurants"
