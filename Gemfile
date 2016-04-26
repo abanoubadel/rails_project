@@ -40,7 +40,9 @@ gem 'devise_zxcvbn'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'mysql2', '~> 0.3.20'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"      #UI template depends on it
+gem 'ionicons-rails'          #UI template depends on it
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
@@ -50,6 +52,7 @@ gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 gem 'delayed_job_active_record'
 gem 'activerecord-session_store'
+gem 'public_activity'
 
 #***********************************************************************
 
@@ -80,7 +83,7 @@ end
 
 
 group :production do
-  gem 'pg', '0.15.1'
+  # gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
 
