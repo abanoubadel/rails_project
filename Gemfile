@@ -36,23 +36,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 #our Gems**************************************************************************
-
+gem 'activeadmin' , '~> 1.0.0.pre2'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate', '0.0.9'
-gem "font-awesome-rails"      #UI template depends on it
+gem 'font-awesome-rails'      #UI template depends on it
 gem 'ionicons-rails'          #UI template depends on it
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 gem 'jquery-turbolinks'
 gem 'sprockets'
-gem 'devise'
+gem 'devise',  '~> 3.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-
+gem 'will_paginate', '3.1.0'
+gem 'kaminari'
+gem 'paperclip'
 #**********************************************************************************
 
 group :development, :test do

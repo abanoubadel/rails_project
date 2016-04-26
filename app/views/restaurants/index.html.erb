@@ -12,7 +12,12 @@
             </div>
           </div><!-- /.box-header -->
           <div class="box-body no-padding">
-            <%= image_tag("default-listing-image.gif", class: "img-circle center-block", alt: "User Image") %>
+            <%= image_tag( restaurant.menu_image.url,
+                           class: "img-circle center-block",
+                           alt: "User Image",
+                          width:"280",
+                          height:"280"
+                ) %>
           </div><!-- /.box-body -->
           <div class="box-footer text-center">
            <%= link_to "See menu" ,restaurant %>

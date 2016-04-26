@@ -1,4 +1,7 @@
 SampleApp::Application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   ###################user routes######################
 
   get 'users/autocomplete_user_name'
@@ -30,5 +33,9 @@ SampleApp::Application.routes.draw do
   get 'restaurants' , to: 'restaurants#index' , as: 'restaurants_list'
   get 'restaurants/:id' , to: 'restaurants#show' , as: 'restaurant'
   post 'restaurants/:id' , to: 'restaurants#make_order' , as: 'make_order'
+  ###################### orders ############################
+
+  resources :orders
+
 
 end
