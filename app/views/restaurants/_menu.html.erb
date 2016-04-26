@@ -1,0 +1,44 @@
+<div class="row">
+
+  <div class="col-md-8">
+
+    <% @items.each do |item| %>
+        <section id="product" class="col-md-3">
+          <ul class="clear">
+            <li data-id="<%= item.id %>">
+              <a href="#">
+                <img src="http://lorempixel.com/150/100/technics/1/" alt="">
+                <h3><%= item.name %></h3>
+                <p><%= item.comment %></p>
+                <span class="pull-right alert-danger"><%= item.price %> $</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+    <% end %>
+
+  </div>
+  <div class="col-md-4">
+ <%= form_for @order , url: {action: "make_order"} do |f|%>
+    <aside id="sidebar">
+      <div class="basket">
+        <div class="basket_list">
+          <div class="head">
+            <span class="name">Product name</span>
+            <span class="count">Quantity</span>
+          </div>
+          <ul>
+            <!--li>
+                <span class="name">Samsung S3 asd asdasdaf dfsdghgfg dgfg</span>
+                <input class="count" value="1" type="text">
+                <button class="delete">&#10005;</button>
+            </li-->
+          </ul>
+        </div>
+      </div>
+    </aside>
+        <%=f.submit("Order now") %>
+    <% end %>
+  </div>
+
+</div>

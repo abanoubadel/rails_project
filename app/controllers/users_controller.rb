@@ -23,37 +23,6 @@ class UsersController < ApplicationController
     render :layout => 'login_layout'
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
-    else
-      
-      render 'new', :layout => 'login_layout'
-    end
-  end
-
-
-
-  def edit
-  end
-
-  def update
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to @user
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
-  end
 
   def following
     @title = "Following"
