@@ -1,4 +1,3 @@
-
 jQuery ->
   displayHint = (strength, crack_time) ->
     msg = 'Password is ' + strength + ' (time to break it: ' + crack_time + ')'

@@ -48,7 +48,8 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
-
+gem 'delayed_job_active_record'
+gem 'activerecord-session_store'
 
 #***********************************************************************
 

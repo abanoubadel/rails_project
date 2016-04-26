@@ -14,9 +14,13 @@ class User < ActiveRecord::Base
   scope :name_like, -> (name) { where("name like ? ", name)}
 
 	devise :database_authenticatable, :registerable,
-       :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable,
+       :recoverable, :rememberable, :trackable, :validatable, :lockable, :zxcvbnable,
        :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
+
+	def send_devise_notification(notification, *args)
+	  devise_mailer.send(notification, self, *args).deliver_later
+	end
 
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
