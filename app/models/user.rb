@@ -13,9 +13,12 @@ class User < ActiveRecord::Base
 
   scope :name_like, -> (name) { where("name like ? ", name)}
 
-	devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable, :lockable, :zxcvbnable,
        :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+
+  #VALID_PHONE_REGEX = /\A^01[0-2]\d{8}$\z/
+  #validates :phone, format: { with: VALID_PHONE_REGEX }
 
 
 	def send_devise_notification(notification, *args)
