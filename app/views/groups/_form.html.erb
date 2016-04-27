@@ -8,6 +8,7 @@
 
   <div class="form-group">
 
+
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
@@ -19,9 +20,10 @@
 
     <%= f.label :members %>
     <div class="field">
-      <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name) %>
+      <%= collection_check_boxes(:group, :user_ids, @friends, :id, :name) %>
     </div>
 
+    <%= f.hidden_field :group_admin_id, :value => current_user.id %>
 
   </div>
   <br>

@@ -10,19 +10,18 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users =User.all
+    @group_owner = User.find(current_user.id)
+    @friends =  @group_owner.followed_users
   end
 
-  def edit
-    @users =User.all
-    @group = Group.find(params[:id])
-  end
-
-  def update
+  def create
     begin
-      @group = Group.find(params[:id])
-      if @group.update(group_params)
-        flash[:notice] = 'Group Updated'
+      @group_owner = User.find(current_user.id)
+      @friends =  @group_owner.followed_users
+      @group = Group.new(group_params)
+      @group_owner.groups << @group
+      if @group.save(validate: false)
+        flash[:notice] = 'Group Created'
         redirect_to groups_path
       else
         render 'new'
@@ -34,11 +33,21 @@ class GroupsController < ApplicationController
     end
   end
 
-  def create
+
+  def edit
+    @group_owner = User.find(current_user.id)
+    @friends =  @group_owner.followed_users
+    @group = Group.find(params[:id])
+  end
+
+  def update
     begin
-      @group = Group.new(group_params)
-      if @group.save(validate: false)
-        flash[:notice] = 'Group Created'
+      @group_owner = User.find(current_user.id)
+      @friends =  @group_owner.followed_users
+      @group = Group.find(params[:id])
+      if @group.update(group_params)
+         @group_owner.groups << @group
+        flash[:notice] = 'Group Updated'
         redirect_to groups_path
       else
         render 'new'
@@ -65,6 +74,6 @@ class GroupsController < ApplicationController
     end
 
   	def group_params
-    	params.require(:group).permit(:name, :description, :group_image, :user_ids => [] )
+    	params.require(:group).permit(:name, :description, :group_admin_id, :group_image, :user_ids => [])
   	end
 end
