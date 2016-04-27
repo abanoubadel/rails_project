@@ -34,8 +34,21 @@
                 <button class="delete">&#10005;</button>
             </li-->
           </ul>
+
         </div>
+
+
       </div>
+
+      <ul id="myTags">
+        <!-- Existing list items will be pre-added to the tags -->
+        <li>Tag1</li>
+        <li>Tag2</li>
+      </ul>
+      <%= javascript_tag do %>
+          tags =<%= raw @userList.to_json %>;
+      <% end %>
+
     </aside>
         <%=f.submit("Order now") %>
     <% end %>

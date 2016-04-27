@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @userList= current_user.followed_users.select("name").map {|u| u.name}
     @restaurant = Restaurant.find(params[:id])
     @items = @restaurant.items.all
     @order = Order.new

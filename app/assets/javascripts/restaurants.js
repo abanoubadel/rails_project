@@ -1,3 +1,5 @@
+//= require tag-it.min
+
 $(function () {
      var i=0;
     // jQuery UI Draggable
@@ -63,8 +65,13 @@ $(function () {
 
 
     // The function that is triggered once delete button is pressed
-    $(".basket ul li button.delete").live("click", function () {
-        $(this).closest("li").remove();
+    //$(".basket ul li button.delete").live("click", function () {
+    //    $(this).closest("li").remove();
+    //});
+
+    $("#myTags").tagit({
+        availableTags: tags
     });
+
 
 });
