@@ -1,0 +1,57 @@
+<div class="row">
+
+  <div class="col-md-8">
+
+    <% @items.each do |item| %>
+        <section id="product" class="col-md-3">
+          <ul class="clear">
+            <li data-id="<%= item.id %>">
+              <a href="#">
+                <%= image_tag(item.image.url , width: "140", height: "100" )	%>
+                <h3><%= item.name %></h3>
+                <p><%= item.comment %></p>
+                <span class="pull-right alert-danger"><%= item.price %> $</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+    <% end %>
+
+  </div>
+  <div class="col-md-4">
+ <%= form_for @order , url: {action: "make_order"} do |f|%>
+    <aside id="sidebar">
+      <div class="basket">
+        <div class="basket_list">
+          <div class="head">
+            <span class="name">Product name</span>
+            <span class="count">Quantity</span>
+          </div>
+          <ul>
+            <!--li>
+                <span class="name">Samsung S3 asd asdasdaf dfsdghgfg dgfg</span>
+                <input class="count" value="1" type="text">
+                <button class="delete">&#10005;</button>
+            </li-->
+          </ul>
+
+        </div>
+
+
+      </div>
+
+      <ul id="myTags">
+        <!-- Existing list items will be pre-added to the tags -->
+        <li>Tag1</li>
+        <li>Tag2</li>
+      </ul>
+      <%= javascript_tag do %>
+          tags =<%= raw @userList.to_json %>;
+      <% end %>
+
+    </aside>
+        <%=f.submit("Order now") %>
+    <% end %>
+  </div>
+
+</div>

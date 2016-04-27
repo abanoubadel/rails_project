@@ -13,36 +13,42 @@
         <small><%= current_user.email %></small>
       </div>
     </div>
-    
+
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <li class="header">Links</li>
       <!-- Optionally, you can add icons to the links -->
       <li class="active">
         <%= link_to user_path(current_user) do %>
-          <i class="ion-person"></i> <span>Profile</span>
+            <i class="ion-person"></i> <span>Profile</span>
         <% end %>
       </li>
       <li>
-        <%= link_to  do %>
-          <i class="ion-person-add"></i> <span>Friends</span>
+        <%= link_to do %>
+            <i class="ion-person-add"></i> <span>Friends</span>
         <% end %>
       </li>
       <li>
         <%= link_to groups_path do %>
-          <i class="fa fa-users"></i> <span>Groups</span>
+            <i class="fa fa-users"></i> <span>Groups</span>
         <% end %>
       </li>
       <li>
-        <%= link_to do %>
-          <i class="fa fa-check-square-o"></i> <span>Orders</span>
+        <%= link_to restaurants_list_path do %>
+            <i class="fa fa-hand-o-right"></i> <span>Restaurants </span>
         <% end %>
       </li>
       <li>
-        <%= link_to do %>
-          <i class="fa fa-info-circle"></i> <span>About</span>
+        <%= link_to orders_path do %>
+            <i class="fa fa-check-square-o"></i> <span>Orders</span>
         <% end %>
-      </li>    
+      </li>
+
+      <li>
+        <%= link_to do %>
+            <i class="fa fa-info-circle"></i> <span>About</span>
+        <% end %>
+      </li>
     </ul><!-- /.sidebar-menu -->
   </section>
   <!-- /.sidebar -->

@@ -1,0 +1,245 @@
+/* ------------------------- Resets ------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+:focus {
+	outline: 0;
+}
+
+/* ------------------------- Main Styles------------------------- */
+
+#wrapper {
+	position: absolute;
+	width: 100%;
+}
+
+#content {
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	
+}
+
+header {padding-top: 10px;}
+
+header h1 {
+	display: block;
+	border-bottom: 1px solid #808080;
+	background: url(../_images/vaden_logo.png) no-repeat; 
+	width: 960px; 
+	height: 100px; 
+	text-indent: -9999px;
+}
+
+header a {
+	display: block;
+	width: 300px;
+	height: 90px;
+}
+
+nav {
+	position: absolute;
+	top: 40px;
+	left: 440px;
+	width: 720px;
+}
+
+#nav li {
+	float: left;
+	display: block;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 10px 20px;
+	margin: 0 20px;
+}
+
+.link li a:hover {
+	color: #e51b24;
+}
+#linkOne {
+	position: absolute;
+	left: -18px;
+	display: none;
+}
+
+#linkTwo {
+	position: absolute;
+	left: 110px;
+	display: none;
+}
+
+#linkThree {
+	position: absolute;
+	left: 230px;
+	display: none;
+}
+
+#linkFour {
+	position: absolute;
+	left: 355px;
+	display: none;
+}
+
+#linkOne li, #linkTwo li, #linkThree li, #linkFour li {
+	padding: 0;
+	padding-right: 20px;
+	margin: 0;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+section {
+	
+}
+
+#tabs {
+	width: 560px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+#tabs-nav {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #808080;
+	border-left: 1px solid #808080;
+	width: 100%;
+}
+
+#tabs-nav li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #808080;
+	border-left: none;
+	margin-bottom: -1px;
+	overflow: hidden;
+	position: relative;
+	background: #e0e0e0;
+}
+
+#tabs-nav li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 0 20px;
+	outline: none;
+}
+
+#tabs-nav li a:hover {
+	background: #ccc;
+}
+
+#tabs-nav li.active, #tabs-nav li.active a:hover {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#tab-container {
+	border: 1px solid #808080;
+	border-top: none;
+	overflow: hidden;
+	clear: both;
+	float: left;
+	width: 100%;
+	background: #fff;
+}
+
+.tab-content {
+	padding: 40px;
+	line-height: 16px;
+}
+
+
+footer {
+	border-top: 1px solid #808080;
+	width: 960px;
+	height: 100px;
+	clear: both;
+}
+
+footer p {
+	font-size: 12px;
+}
+
+
+section#products {width: 620px; float: left;}
+section#products h2 {padding: 10px; font-size: 20px;}
+section#products p {padding: 10px;display: block;}
+.product {border: 1px solid #808080; display: block; height: 198px;}
+.product img {float: left;}
+.product-info {float: left; width: 300px;}
+.price {float: right; font-weight: bold;}
+aside {width: 300px; float: right; margin: 88px 0 0 0;}
+#cart {padding: 10px;border: 1px solid #808080;width: 278px;}
+#cart h2 {padding: 0 0 10px 0; font-size: 20px;}
+
+.dropzone {background: #c0c0c0; display: block; padding: 20px;margin: 20px 0;border: 5px dashed #808080;}
+.dropzone p {text-align: center;}
+.cart-content {}
+.empty {margin: 20px 0 0 0; width: 100%;background: #000; height: 40px; color: #fff; text-align: center;line-height: 40px; display: none;}
+.div-remove {float: left;padding: 0 10px;font-size: 30px;line-height: 25px;}
+.div-remove a:hover {color: #ff0000;cursor: pointer;}
+.cart-item {line-height: 30px;clear:both;}
+
+
+#dialog-confirm {display: none;}
+
+.item-name {padding-right: 10px;}
+.cart-item p {float: left;}
+input {width: 20px;}
+p.input {float:right;}
+
+
+
+
+
+form {position: absolute; top: 10px; left: 570px;width: 400px;}
+form input {width: 300px;float: left;}
+#submit {width: 80px; display: block; background: #c0c0c0;border: 1px solid #808080;height: 22px;}
+#results-box {position: absolute; top: 35px; left: 570px; z-index: 100; background: #fff; border: 1px solid #808080; width: 305px;display: none;}
+#results-box ul {}
+#results-box li {display: block; padding: 5px 10px;}
+#results-box li.results-item {display: block; height: 30px;}
+#results-box p {line-height: 30px; padding-left: 10px;}
+p.results-title {float: left;}
+p.results-url {float: right;}
+.active {background: #ff0000;}
+.no-results {display: none;}
+.results-icon {float: left;}
