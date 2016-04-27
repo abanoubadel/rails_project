@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   get 'users/autocomplete_user_name'
 
   resources :users do
@@ -18,13 +21,6 @@ Rails.application.routes.draw do
   match '/notifications',   to: 'notifications#index',    via: 'get'
 
 
-  root to: 'static_pages#index'
-
-  ####################static pages ##########################
-
-  match '/help', to: 'static_pages#help', via: 'get'
-  match '/about', to: 'static_pages#about', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
 
   #####################resturants ########################
 
