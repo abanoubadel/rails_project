@@ -1,33 +1,3 @@
-/*  reset & .clear
-----------------------------*/
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.clear:before,
-.clear:after {
-    content: " ";
-    display: table;
-}
-
-.clear:after { clear: both }
-
-.clear { *zoom: 1 }
-
-/*  MAIN
-----------------------------*/
-
-body {
-    font: normal 12px/1.3 arial, sans-serif;
-    background-color: #eee;
-}
-
-li { list-style: none }
-
-a { text-decoration: none }
-
 .container {
     position: relative;
     width: 920px;

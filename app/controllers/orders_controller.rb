@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
 
+    # Notification.create(@order, current_user, [1,2])
     render json: params
     # @order = Order.new(order_params)
     #
