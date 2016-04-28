@@ -10,7 +10,8 @@ class GroupsController < ApplicationController
     @groups = user.groups  
     respond_to do |format|
       format.html
-      format.json
+      # format.json
+      format.css
     end
   end
 
