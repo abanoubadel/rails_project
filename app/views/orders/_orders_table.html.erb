@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         <% @orders.each do |order| %>
-
+          <% if order %>
             <tr>
               <td><%= order.id %></td>
               <td><%= order.description %></td>
@@ -32,8 +32,8 @@
               </td>
               <td><%= order.restaurant.name  if !order.restaurant.nil? %></td>
             </tr>
+          <% end %>
         <% end %>
-
         </tbody>
       </table>
     </div><!-- /.table-responsive -->
