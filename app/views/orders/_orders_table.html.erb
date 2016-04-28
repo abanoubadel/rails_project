@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<!-- TABLE: LATEST ORDERS -->
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Latest Orders</h3>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <div class="table-responsive">
+      <table class="table no-margin">
+        <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>description</th>
+          <th>status</th>
+          <th>date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+
+            <tr>
+              <td><%= order.id %></td>
+              <td><%= order.description %></td>
+              <td><span class="label label-success"><% order.status %></span></td>
+              <td>
+                <div class="sparkbar" data-color="#00a65a" data-height="20"><%= order.created_at %></div>
+              </td>
+              <td><%= order.restaurant.name  if !order.restaurant.nil? %></td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div><!-- /.table-responsive -->
+  </div><!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <%= link_to "Place New Orde", new_order_path, class: "btn btn-sm btn-info btn-flat pull-left" %>
+  </div><!-- /.box-footer -->
+</div><!-- /.box -->
+<!--<td> link_to 'Destroy', order, method: :delete, data: {confirm: 'Are you sure?'} </td>-->

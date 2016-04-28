@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426223146) do
+ActiveRecord::Schema.define(version: 20160427235159) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20160426223146) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "restaurant_id", limit: 4
+    t.integer  "owner_id",      limit: 4
   end
 
   add_index "orders", ["restaurant_id"], name: "index_orders_on_restaurant_id", using: :btree

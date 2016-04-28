@@ -70,8 +70,20 @@ $(function () {
     //});
 
     $("#myTags").tagit({
-        availableTags: tags
+        availableTags: tags,
+        beforeTagAdded: function(event, ui) {
+            if(tags.indexOf(ui.tagLabel)>-1){
+                $(".basket").append($("<input name='users[]' type='hidden' value='"+ui.tagLabel+"'>"))
+                $("#tag_err").html("")
+
+            }else {
+                $("#tag_err").html(ui.tagLabel+" isn't in your frindes or groups")
+                $("#myTags").tagit("removeTagByLabel", ui.tagLabel);
+            }
+        }
     });
+
+
 
 
 });

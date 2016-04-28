@@ -12,6 +12,8 @@ class RestaurantsController < ApplicationController
   end
 
   def make_order
+    # render json: params
+    # return
     restaurant_id = params.fetch(:id)
     orderItems=[]
     params.fetch(:data).each do  |id,count|
@@ -22,7 +24,8 @@ class RestaurantsController < ApplicationController
     order.description = "new order"
     order.status = 0
     order.meal = "lunch"
-    order.users << current_user
+    order.owner = current_user
+    order.users << User.find_by_name(params.fetch('users'));
     if order.save
        redirect_to :back
     else

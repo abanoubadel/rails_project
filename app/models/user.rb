@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-
+	has_many :selfOrders, class_name: 'Order' , foreign_key: 'owner_id'
 
 
   scope :name_like, -> (name) { where("name like ? ", name)}

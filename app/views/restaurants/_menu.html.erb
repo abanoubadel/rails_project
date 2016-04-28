@@ -19,10 +19,14 @@
 
   </div>
   <div class="col-md-4">
- <%= form_for @order , url: {action: "make_order"} do |f|%>
+    <div class="panel panel-default">
+      <div class="panel-heading"> <i class="fa  fa-cart-plus"></i> Drop what you want here:</div>
+      <div class="panel-body">
+
+    <%= form_for @order , url: {action: "make_order"} do |f|%>
     <aside id="sidebar">
       <div class="basket">
-        <div class="basket_list">
+        <div class="basket_list" style="width: 100%; min-height: 200px;">
           <div class="head">
             <span class="name">Product name</span>
             <span class="count">Quantity</span>
@@ -37,21 +41,24 @@
 
         </div>
 
-
       </div>
-
+      <span>Tag your friends:</span>
       <ul id="myTags">
         <!-- Existing list items will be pre-added to the tags -->
-        <li>Tag1</li>
-        <li>Tag2</li>
+
       </ul>
+      <p id="tag_err" class="alert-danger"></p>
       <%= javascript_tag do %>
           tags =<%= raw @userList.to_json %>;
       <% end %>
 
     </aside>
-        <%=f.submit("Order now") %>
+        <%=f.button(:class =>'btn btn-success center-block ') do %>
+                <i class="fa fa-rocket "> Order now and enjoy!!</i><%	end   %>
     <% end %>
+      </div>
+    </div>
+
   </div>
 
 </div>

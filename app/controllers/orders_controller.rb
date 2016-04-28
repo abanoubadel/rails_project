@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders=[]
+    @orders  << Order.find_by_owner_id(current_user.id)
   end
 
   # GET /orders/1
@@ -12,8 +13,13 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def invitations
+    @orders = current_user.orders
+  end
+
   # GET /orders/new
   before_action :authenticate_user!
+
   def new
     @owner = current_user
     @order = Order.new
@@ -66,13 +72,13 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.fetch(:order, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def order_params
+    params.fetch(:order, {})
+  end
 end

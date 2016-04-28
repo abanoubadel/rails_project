@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   post 'restaurants/:id' , to: 'restaurants#make_order' , as: 'make_order'
   ###################### orders ############################
 
-  resources :orders
+  resources :orders do
+  end
+  get 'invitations', to: 'orders#invitations'
 
 
 end
