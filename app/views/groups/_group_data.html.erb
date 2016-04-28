@@ -1,8 +1,5 @@
 
 
-
-
-    <div class="col-md-6">
         <!-- Widget: user widget style 1 -->
         <div class="box box-widget widget-user-2">
         	<!-- Add the bg color to the header using any of the bg-* classes -->
@@ -10,23 +7,26 @@
                 <img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
             </div><!-- /.widget-user-image -->
         	<div class="widget-user-header bg-yellow">
-                  <h3 class="widget-user-username"><%=@group.name%></h3>
+                  <span class="widget-user-username"><%=@group.name%></span>
+                  <span class="pull-right ">
+                  	<button class="btn btn-danger" onclick="hide_group_info()"> Close </button>
+                  </span>
             </div>
                 <div class="box-footer no-padding">
                 	<ul class="nav nav-stacked">
-						<li>
+						<li style="margin: 10px 0">
 							<span> Members Numbers</span>
 							<span class="pull-right badge bg-blue">
 								<%= @group.users.count %>
 							</span>
 						</li>
-						<li>
+						<li style="margin: 10px 0" >
 							<span> Members </span>
 							<span class="pull-right">
 								<%= @group.users.map {|c| c.name}.join(', ') %>
 							</span>
 						</li>
-						<li>
+						<li style="margin: 10px 0" >
 							<span> Description</span>
 							<span class="pull-right">
 								<%= @group.description %>
@@ -35,9 +35,15 @@
 					</ul>
                 </div>
             </div><!-- /.widget-user -->
-    </div><!-- /.col -->
 
 
 
 
 
+
+
+<script type="text/javascript">
+	function hide_group_info(){
+		$("#group-data").slideUp(350);
+	}
+</script>

@@ -1,14 +1,14 @@
- 	
-<li>
-	<%= link_to group.name, group, remote: true%>
-	<span class="pull-right badge bg-blue">
-		<%= group.users.count %>
-	</span>
-	 	<%= link_to edit_group_path(group), remote: true do %>
-	  		<button>Edit</button>
-	  	<% end %>
+<li style="margin: 10px 0">
+	<div class="row">
+		<div class="col col-md-8" style="padding: 0 25px">
+			<%= link_to group.name, group, remote: true%>
+		</div>
+		<div class="col col-md-2">
+			<%= link_to "Edit", edit_group_path(group), class: "pull-right btn btn-primary", remote: true %>
+		</div>
+		<div class="col col-md-2" style="padding: 0 20px">
+			<%= link_to "Delete", group, class: "pull-right btn btn-danger", remote: true, method: :delete,  data: { confirm: 'Are you sure?' } %>
+		</div>
+	</div>
 
-		<%= link_to group, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
-	  		<button>Delete!</button>
-		<% end %>
 </li>

@@ -1,13 +1,10 @@
 <h2 class="page-header"> Manage Groups </h2>
 
 <div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    <h2>Groups</h2>
-  </div>
 
-  <div class="col-md-2 col-md-offset-4">
+  <div class="col-md-2 col-md-offset-4 pull-right ">
     <%= link_to new_group_path, remote: true do %>
-        <button class="btn btn-default">New</button>
+        <button class="btn btn-success">New</button>
     <% end %>
 
 
@@ -18,14 +15,8 @@
   <div class="col-md-6 col-md-offset-2" id="group-form" style="display:none;"></div>
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-2" id="group-data" style="display:none;"></div>
-</div>
-
-<div class="row">
-  <div class="col-md-7 col-md-offset-1" id="groups">
-    <div class="row">
-        <div class="col-md-4">
+<div class="row" style="padding: 10px 15px">
+  <div class="col-md-6 ">
             <!-- Widget: user widget style 1 -->
             <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -33,12 +24,12 @@
                   <h3 class="widget-user-username">Groups</h3>
                 </div>
                 <div class="box-footer no-padding">
-                  <ul class="nav nav-stacked">
+                  <ul class="nav nav-stacked "  id="groups">
                         <%= render @groups %>
                   </ul>
                 </div>
             </div><!-- /.widget-user -->
-        </div><!-- /.col -->
-    </div>
-  </div>
+  </div><!-- /.col -->
+  <div class="col-md-6" id="group-data" style="display:none;"></div>
 </div>
+
