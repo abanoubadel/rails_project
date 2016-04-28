@@ -1,0 +1,14 @@
+ 	
+<li>
+	<%= link_to group.name, group, remote: true%>
+	<span class="pull-right badge bg-blue">
+		<%= group.users.count %>
+	</span>
+	 	<%= link_to edit_group_path(group), remote: true do %>
+	  		<button>Edit</button>
+	  	<% end %>
+
+		<%= link_to group, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
+	  		<button>Delete!</button>
+		<% end %>
+</li>
