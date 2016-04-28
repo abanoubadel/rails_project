@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
        :recoverable, :rememberable, :trackable, :validatable, :lockable, :zxcvbnable,
        :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
+  
+
 
 
 	def send_devise_notification(notification, *args)
