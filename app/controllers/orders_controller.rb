@@ -45,12 +45,14 @@ class OrdersController < ApplicationController
     order.status = 0
     order.meal = "lunch"
     order.owner = current_user
-    order.users << User.find_by_name(params.fetch('users'));
+    invited_users =[]
+    invited_users << User.find_by_name(params.fetch('users'));
+    order.users << invited_users
     if order.save
+      Notification.create(order,current_user,invited_users)
       redirect_to :back
     else
       redirect_to root_path
-
     end
   end
 
