@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     puts '------------------------------------------------' + invited_users.inspect + '------------------------------------------------'
     order.users << invited_users
     if order.save
-      Notification.create(order, current_user, invited_users)
+      Notification.create(order, :create, current_user, invited_users)
       redirect_to :back
     else
       redirect_to root_path
@@ -63,7 +63,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       @order.description = order_params['description']
       @order.meal = order_params['meal'].to_i
-      @order.items =Item.find order_params['items'].take_while {|i| i.to_i > 0 }
+      @order.items =Item.find order_params['items'].take_while { |i| i.to_i > 0 }
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }

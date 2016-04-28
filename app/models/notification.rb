@@ -5,8 +5,8 @@ class Notification < ActiveRecord::Base
 	# model: model instance
 	# sender: who made the notification
 	# recipients: people will receive notification
-	def self.create(model, sender, recipients)
-  		activity = model.create_activity :create, owner: sender
+	def self.create(model, type, sender, recipients)
+  		activity = model.create_activity type, owner: sender
   		recipients.each do |recipient|
   		  @notification = self.new
   		  @notification.activity_id = activity.id

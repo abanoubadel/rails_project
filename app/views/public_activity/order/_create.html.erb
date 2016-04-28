@@ -1,1 +1,3 @@
+<% if activity.trackable %>
 <%= link_to activity.owner.name, activity.owner if activity.owner %> created new order from <%= link_to activity.trackable.restaurant.name, activity.trackable %> Join
+<% end %>
