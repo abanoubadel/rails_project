@@ -46,7 +46,8 @@ class OrdersController < ApplicationController
     order.meal = "lunch"
     order.owner = current_user
     invited_users =[]
-    invited_users << User.find_by_name(params.fetch('users'));
+    invited_users << User.find_by_name(params.fetch('users'))
+    puts '------------------------------------------------' + invited_users.inspect + '------------------------------------------------'
     order.users << invited_users
     if order.save
       Notification.create(order,current_user,invited_users)
