@@ -1,1 +1,1 @@
-added new order <%= link_to activity.trackable.description %>
+<%= link_to activity.owner.name, activity.owner if activity.owner %> created new order from <%= activity.trackable.restaurant.name %> Join
