@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-
+  include PublicActivity::Common
+  
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :orders
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

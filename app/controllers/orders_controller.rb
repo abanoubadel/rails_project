@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     puts '------------------------------------------------' + invited_users.inspect + '------------------------------------------------'
     order.users << invited_users
     if order.save
-      Notification.create(order,current_user,invited_users)
+      Notification.create(order, :create, current_user, invited_users)
       redirect_to :back
     else
       redirect_to root_path

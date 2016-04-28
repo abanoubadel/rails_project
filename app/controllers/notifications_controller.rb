@@ -1,8 +1,8 @@
 class NotificationsController < ApplicationController
 	before_action :authenticate_user!
 
-	def index
-	  @notifications = Notification.where("user_id = #{current_user.id}").limit(10)
+	def list
+	  @notifications = Notification.where("user_id = #{current_user.id}").order("created_at desc").limit(10)
 	  @counter = Notification.where("user_id = #{current_user.id} and status = 0").count
 	  @js = { notifications: [], count: @counter }
 	  @notifications.each do |notification|
@@ -19,5 +19,9 @@ class NotificationsController < ApplicationController
 			notification.update_attribute(:status, 1)
 		end
 		render json: { message: params[:id] }
+	end
+
+	def index
+		@notifications = Notification.where("user_id = #{current_user.id}").order("created_at desc")
 	end
 end
