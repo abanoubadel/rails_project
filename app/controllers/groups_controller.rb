@@ -2,11 +2,22 @@ class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:destroy]
+  before_action :all_groups, only: [:index, :create, :update, :destroy]
+  respond_to :html, :js
 
   def index
     user=User.find(current_user.id)
-    @groups= user.groups
+    @groups = user.groups  
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
+
+  def show
+    @group= Group.find(params[:id])
+  end
+
 
   def new
     @group = Group.new
@@ -22,9 +33,7 @@ class GroupsController < ApplicationController
       @group_owner.groups << @group
       if @group.save(validate: false)
         flash[:notice] = 'Group Created'
-        redirect_to groups_path
       else
-        render 'new'
       end
     rescue Exception => e
       logger.debug "#{e.class}"
@@ -47,10 +56,8 @@ class GroupsController < ApplicationController
       @group = Group.find(params[:id])
       if @group.update(group_params)
          @group_owner.groups << @group
-        flash[:notice] = 'Group Updated'
-        redirect_to groups_path
+         flash[:notice] = 'Group Updated'
       else
-        render 'new'
       end
     rescue Exception => e
       logger.debug "#{e.class}"
@@ -64,10 +71,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
     flash[:notice] = 'Group Removed'
-    redirect_to groups_path
   end
 
   private
+
+    def all_groups
+      user=User.find(current_user.id)
+      @groups = user.groups 
+    end
 
     def set_group
       @group = Group.find(params[:id])

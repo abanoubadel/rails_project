@@ -1,0 +1,43 @@
+
+
+
+
+    <div class="col-md-6">
+        <!-- Widget: user widget style 1 -->
+        <div class="box box-widget widget-user-2">
+        	<!-- Add the bg color to the header using any of the bg-* classes -->
+        	<div class="widget-user-image">
+                <img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+            </div><!-- /.widget-user-image -->
+        	<div class="widget-user-header bg-yellow">
+                  <h3 class="widget-user-username"><%=@group.name%></h3>
+            </div>
+                <div class="box-footer no-padding">
+                	<ul class="nav nav-stacked">
+						<li>
+							<span> Members Numbers</span>
+							<span class="pull-right badge bg-blue">
+								<%= @group.users.count %>
+							</span>
+						</li>
+						<li>
+							<span> Members </span>
+							<span class="pull-right">
+								<%= @group.users.map {|c| c.name}.join(', ') %>
+							</span>
+						</li>
+						<li>
+							<span> Description</span>
+							<span class="pull-right">
+								<%= @group.description %>
+							</span>
+						</li>                        
+					</ul>
+                </div>
+            </div><!-- /.widget-user -->
+    </div><!-- /.col -->
+
+
+
+
+

@@ -1,31 +1,44 @@
-	<h2 class="page-header">Manage Groups <%= link_to "Create New", new_group_path, class:'btn btn-success pull-right' %></h2>
-    <table class="table table-striped">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Group Image</th>
-            <th>Members</th>
-            <th>Image</th>
-            <th>Create Time</th>
-            <th>Action</th>
-       	</tr>
-        <% @groups.each do |group| %>
-	        <tr>
-	        	<td><%= group.name %></td>
-	        	<td><%= group.description %></td>
-	        	<td><%= group.group_image %></td>
-                <td><%= group.users.map {|c| c.name}.join(', ') %></td>
-                <td>
+<h2 class="page-header"> Manage Groups </h2>
 
-                    
-                </td>
-	        	<td><%= group.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <h2>Groups</h2>
+  </div>
 
-                <% if group.group_admin_id == current_user.id %>
-    	        	<td><%= link_to "Edit", edit_group_path(group), class:'btn btn-primary' %><%= link_to "Delete", group_path(group), class:'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
-                    </td>
-                <% end %>
-	        </tr>
-        <% end %>
+  <div class="col-md-2 col-md-offset-4">
+    <%= link_to new_group_path, remote: true do %>
+        <button class="btn btn-default">New</button>
+    <% end %>
 
-    </table>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="group-form" style="display:none;"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="group-data" style="display:none;"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="groups">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header bg-yellow">
+                  <h3 class="widget-user-username">Groups</h3>
+                </div>
+                <div class="box-footer no-padding">
+                  <ul class="nav nav-stacked">
+                        <%= render @groups %>
+                  </ul>
+                </div>
+            </div><!-- /.widget-user -->
+        </div><!-- /.col -->
+    </div>
+  </div>
+</div>
