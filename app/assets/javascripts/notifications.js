@@ -10,7 +10,12 @@ $.ajax({
   		html += data.notifications[i].message;
   		html += '</li>';
   	}
-  	$('.notifications-menu .count').html(data.count);
+    if(data.count == 0){
+      $('.notifications-menu .count').hide();
+    }else{
+      $('.notifications-menu .count').show();
+      $('.notifications-menu .count').html(data.count);
+    }
   	$('.notifications-menu .menu').append(html);
   }
 });
