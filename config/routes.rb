@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get 'restaurants' , to: 'restaurants#index' , as: 'restaurants_list'
   get 'restaurants/:id' , to: 'restaurants#show' , as: 'restaurant'
-  post 'restaurants/:id' , to: 'restaurants#make_order' , as: 'make_order'
+  post 'restaurants/:id' , to: 'orders#create' , as: 'make_order'
   ###################### orders ############################
 
   resources :orders do

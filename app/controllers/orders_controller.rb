@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders=[]
-    @orders  << Order.find_by_owner_id(current_user.id)
+    @orders << Order.find_by_owner_id(current_user.id)
   end
 
   # GET /orders/1
@@ -32,20 +32,28 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-
-    # Notification.create(@order, current_user, [1,2])
-    render json: params
-    # @order = Order.new(order_params)
-    #
-    # respond_to do |format|
-    #   if @order.save
-    #     format.html { redirect_to @order, notice: 'Order was successfully created.' }
-    #     format.json { render :show, status: :created, location: @order }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @order.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    # render json: params
+    # return
+    restaurant_id = params.fetch(:id)
+    orderItems=[]
+    params.fetch(:data).each do |id, count|
+      orderItems << ItemsOrder.new(item_id: id.to_s, amount: count)
+    end
+    order = Order.new(restaurant_id: restaurant_id)
+    order.items_orders << orderItems
+    order.description = "new order"
+    order.status = 0
+    order.meal = "lunch"
+    order.owner = current_user
+    invited_users =[]
+    invited_users << User.find_by_name(params.fetch('users'));
+    order.users << invited_users
+    if order.save
+      Notification.create(order,current_user,invited_users)
+      redirect_to :back
+    else
+      redirect_to root_path
+    end
   end
 
   # PATCH/PUT /orders/1
