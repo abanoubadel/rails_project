@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: []
   before_action :correct_user,   only: []
   autocomplete :user, :name, :full => true
+  respond_to :html, :js
 
   def index
     @users = User.paginate(page: params[:page]).where.not(id: current_user)
@@ -12,7 +13,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+    rescue Exception => e
+       logger.debug "#{e.class}"
+       redirect_to root_url
+    end
   end
 
   
@@ -24,12 +30,12 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  def followers
-    @title = "Followers"
-    @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
+  # def followers
+  #   @title = "Followers"
+  #   @user = User.find(params[:id])
+  #   @users = @user.followers.paginate(page: params[:page])
+  #   render 'show_follow'
+  # end
 
   private
 
@@ -42,5 +48,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
-
   end

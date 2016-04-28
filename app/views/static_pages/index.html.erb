@@ -27,6 +27,18 @@
           <i class="fa fa-rss"></i>
           <h3 class="box-title">Friends Activity</h3>
         </div>
+        <div class="box-body">
+          <ul class="todo-list ui-sortable" style="overflow-x: hidden; height: 400px;">
+          <% @activities.each do |activity| %>
+            <% if activity %>
+              <li>
+                <span class="text"><%= render_activity activity %></span>
+                <!-- <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small> -->
+              </li>
+            <% end %>    
+          <% end %>
+          </ul>
+        </div>
         <div class="box-footer">
         </div>
       </div>

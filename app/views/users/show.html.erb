@@ -20,13 +20,9 @@
 
           <ul class="list-group list-group-unbordered">
             <li class="list-group-item">
-              <b>Followers</b> <a class="pull-right"><%= @user.followers.count %></a>
-            </li>
-            <li class="list-group-item">
-              <b>Following</b> <a class="pull-right"><%= @user.followed_users.count %></a>
+              <b>Contacts</b> <a class="pull-right"><%= @user.followed_users.count %></a>
             </li>
           </ul>
-          <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
           <%= render 'follow_form' if user_signed_in? %>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
@@ -45,7 +41,9 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
-          <li><a href="#settings" data-toggle="tab">Settings</a></li>
+          <% if current_user.id == @user.id %>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+          <% end %>
         </ul>
         <div class="tab-content">
           <div class="active tab-pane" id="activity">

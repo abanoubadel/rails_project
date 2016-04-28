@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'users/autocomplete_user_name'
 
+
   resources :users do
     member do
       get :following, :followers
