@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   autocomplete :user, :name, :full => true
 
   def index
-    @users = current_user.followed_users.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).where.not(id: current_user)
     if params[:search]
       @users = User.name_like("%#{params[:search]}%").order('name').paginate(page: params[:page])
     else

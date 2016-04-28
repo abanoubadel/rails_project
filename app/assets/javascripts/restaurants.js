@@ -68,7 +68,9 @@ $(function () {
     //$(".basket ul li button.delete").live("click", function () {
     //    $(this).closest("li").remove();
     //});
-
+    if (typeof tags === 'undefined') {
+        tags = []
+    }
     $("#myTags").tagit({
         availableTags: tags,
         beforeTagAdded: function(event, ui) {
