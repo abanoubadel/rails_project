@@ -1,7 +1,7 @@
 var interval = 5000;  // 1000 = 1 second, 3000 = 3 seconds
 function doAjax() {
   $.ajax({
-    url: "/notifications",
+    url: "/notifications/json",
     type: "GET",
     success: function (data) {
     	console.log(data);
@@ -9,9 +9,11 @@ function doAjax() {
       //load notifications
     	var html = '';
     	for (var i = 0; i < data.notifications.length; ++i) {
-    		html += '<li>';
-    		html += data.notifications[i].message;
-    		html += '</li>';
+        if(data.notifications[i].message){
+          html += '<li>';
+          html += data.notifications[i].message;
+          html += '</li>';
+        }
     	}
       $('.notifications-menu .menu').html(html);
       //counter display
@@ -25,9 +27,9 @@ function doAjax() {
         $('.notifications-menu .count').html(data.count);
       }
       setCookie("notify", data.count, 10);
+      setTimeout(doAjax, interval);
     },
     complete: function (data) {
-      setTimeout(doAjax, interval);
     }
   });
 }

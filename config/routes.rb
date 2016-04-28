@@ -16,11 +16,12 @@ Rails.application.routes.draw do
   resources :groups
   resources :relationships, only: [:create, :destroy]
   root to: 'static_pages#index'
-  match '/help',            to: 'static_pages#help',      via: 'get'
-  match '/about',           to: 'static_pages#about',     via: 'get'
-  match '/contact',         to: 'static_pages#contact',   via: 'get'
-  match '/notifications',   to: 'notifications#index',    via: 'get'
-  match '/notifications',   to: 'notifications#update',   via: 'post'
+  match '/help',                to: 'static_pages#help',      via: 'get'
+  match '/about',               to: 'static_pages#about',     via: 'get'
+  match '/contact',             to: 'static_pages#contact',   via: 'get'
+  match '/notifications/json',  to: 'notifications#list',     via: 'get'
+  match '/notifications',       to: 'notifications#index',    via: 'get'
+  match '/notifications',       to: 'notifications#update',   via: 'post'
 
   #####################resturants ########################
 
