@@ -1,4 +1,4 @@
-var interval = 5000;  // 1000 = 1 second, 3000 = 3 seconds
+var interval = 50000;  // 1000 = 1 second, 3000 = 3 seconds
 function doAjax() {
   $.ajax({
     url: "/notifications/json",

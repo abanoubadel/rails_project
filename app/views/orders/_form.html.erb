@@ -1,21 +1,34 @@
-<%= form_for(@order) do |f| %>
-    <% if @order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-          <ul>
-            <% @order.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+<div class="box box-warning">
+  <div class="box-header with-border">
+    <h3 class="box-title">General Elements</h3>
+  </div>
+  <div class="box-body">
+    <%= form_for(@order, class: 'form-group') do |f| %>
+        <% if @order.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+              <ul>
+                <% @order.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <div>
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :meal %>
+          <%= f.select :meal, {breakfast: 1, lunch: 2, dinner: 3}, class: 'form-control' %>
+        </div>
+        <div class="checkbox">
+          <%= collection_check_boxes(:order, :item_ids, @order.items, :id, :name, class: 'form-control') %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+
     <% end %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.label :meal %>
-    <%= f.select :meal, {breakfast: 1, lunch: 2, dinner: 3} %>
-    <%= collection_check_boxes(:order, :item_ids, @order.items, :id, :name) %>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
+  </div>
+</div>
