@@ -19,14 +19,10 @@
           <h3 class="profile-username text-center"><%= @user.name %></h3>
 
           <ul class="list-group list-group-unbordered">
-   <!--          <li class="list-group-item">
-              <b>Followers</b> <a class="pull-right"><%= @user.followers.count %></a>
-            </li> -->
             <li class="list-group-item">
               <b>Contacts</b> <a class="pull-right"><%= @user.followed_users.count %></a>
             </li>
           </ul>
-          <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
           <%= render 'follow_form' if user_signed_in? %>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
