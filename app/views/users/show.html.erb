@@ -1,71 +1,66 @@
 <% provide(:title, @user.name) %>
 <!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
+<% content_for :head do %>
     <%= @user.name %>'s Profile
-  </h1>
-</section>
+<% end %>
 
 <!-- Main content -->
-<section class="content">
+<div class="row">
+  <div class="col-md-3">
 
-  <div class="row">
-    <div class="col-md-3">
+    <!-- Profile Image -->
+    <div class="box box-primary">
+      <div class="box-body box-profile">
+        <%= image_tag("user2-160x160.jpg", class: "profile-user-img img-responsive img-circle", alt: "User profile picture") %>
+        <h3 class="profile-username text-center"><%= @user.name %></h3>
 
-      <!-- Profile Image -->
-      <div class="box box-primary">
-        <div class="box-body box-profile">
-          <%= image_tag("user2-160x160.jpg", class: "profile-user-img img-responsive img-circle", alt: "User profile picture") %>
-          <h3 class="profile-username text-center"><%= @user.name %></h3>
-
-          <ul class="list-group list-group-unbordered">
-            <li class="list-group-item">
-              <b>Contacts</b> <a class="pull-right"><%= @user.followed_users.count %></a>
-            </li>
-          </ul>
-          <%= render 'follow_form' if user_signed_in? %>
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-
-      <!-- About Me Box -->
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">About Me</h3>
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          <%= @user.bio %>
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-    </div><!-- /.col -->
-    <div class="col-md-9">
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
-          <% if current_user.id == @user.id %>
-            <li><a href="#settings" data-toggle="tab">Settings</a></li>
-          <% end %>
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <b>Contacts</b> <a class="pull-right"><%= @user.followed_users.count %></a>
+          </li>
         </ul>
-        <div class="tab-content">
-          <div class="active tab-pane" id="activity">
-            <div class="box-body">
-              <ul class="todo-list ui-sortable" style="overflow-x: hidden; max-height: 400px;">
-              <% @activities.each do |activity| %>
-                <% if activity %>
-                  <li>
-                    <span class="text"><%= render_activity activity %></span>
-                    <!-- <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small> -->
-                  </li>
-                <% end %>    
-              <% end %>
-              </ul>
-            </div>
-          </div><!-- /.tab-pane -->
-          <div class="tab-pane" id="settings">
-           <%= link_to "Edit Settings", edit_user_registration_path%> 
-          </div><!-- /.tab-pane -->
-        </div><!-- /.tab-content -->
-      </div><!-- /.nav-tabs-custom -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
+        <%= render 'follow_form' if user_signed_in? %>
+      </div><!-- /.box-body -->
+    </div><!-- /.box -->
 
-</section><!-- /.content -->
+    <!-- About Me Box -->
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">About Me</h3>
+      </div><!-- /.box-header -->
+      <div class="box-body">
+        <%= @user.bio %>
+      </div><!-- /.box-body -->
+    </div><!-- /.box -->
+  </div><!-- /.col -->
+  <div class="col-md-9">
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+        <% if current_user.id == @user.id %>
+            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        <% end %>
+      </ul>
+      <div class="tab-content">
+        <div class="active tab-pane" id="activity">
+          <div class="box-body">
+            <ul class="todo-list ui-sortable" style="overflow-x: hidden; max-height: 400px;">
+              <% @activities.each do |activity| %>
+                  <% if activity %>
+                      <li>
+                        <span class="text"><%= render_activity activity %></span>
+                        <!-- <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small> -->
+                      </li>
+                  <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div><!-- /.tab-pane -->
+        <div class="tab-pane" id="settings">
+          <%= link_to "Edit Settings", edit_user_registration_path %>
+        </div><!-- /.tab-pane -->
+      </div><!-- /.tab-content -->
+    </div><!-- /.nav-tabs-custom -->
+  </div><!-- /.col -->
+</div><!-- /.row -->
+

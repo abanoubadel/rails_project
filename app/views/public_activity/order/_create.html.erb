@@ -1,3 +1,11 @@
 <% if activity.trackable %>
-<%= link_to activity.owner.name, activity.owner if activity.owner %> created new order from <%= link_to activity.trackable.restaurant.name, activity.trackable %> Join
+    <% order = activity.trackable %>
+    <%= link_to activity.owner.name, activity.owner if activity.owner %>
+    asked you to join
+    <%= link_to "order", order %>
+    from
+    <%= link_to order.restaurant.name,
+                order.restaurant %>
+    <%= time_ago_in_words order.created_at %> ago
+    <%= link_to 'Join now', join_order_path(order) %>
 <% end %>
