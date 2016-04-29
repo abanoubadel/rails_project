@@ -20,11 +20,20 @@
 								<%= @group.users.count %>
 							</span>
 						</li>
-						<li style="margin: 10px 0" >
-							<span> Members </span>
+						<li style="margin: 10px 0">
+							<span> Group Admin</span>
 							<span class="pull-right">
-								<%= @group.users.map {|c| c.name}.join(', ') %>
+							<%= link_to User.find(@group.group_admin_id).name, :controller => "users", :action => "show"  %>
 							</span>
+						</li>
+						<li style="margin: 10px 0">
+							<span> Members </span>
+							<% @group.users.each do |user| %>
+								<span class="pull-right">
+									<%= link_to user.name, :controller => "users", :action => "show"  %>
+								</span>
+								<br>
+							<% end %>
 						</li>
 						<li style="margin: 10px 0" >
 							<span> Description</span>
