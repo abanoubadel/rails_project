@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders=[]
-    @orders << Order.find_by_owner_id(current_user.id)
+    @orders = Order.where('owner_id',current_user.id)
   end
 
   # GET /orders/1
@@ -31,25 +31,28 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    # render json: params
-    # return
     restaurant_id = params.fetch(:id)
-    orderItems=[]
-    params.fetch(:data).each do |id, count|
-      orderItems << ItemsOrder.new(item_id: id.to_s, amount: count)
+    order_data= params.fetch('order')
+    order_items=[]
+    params.fetch(:order_items).each do |id, count|
+      order_items << ItemsOrder.new(item_id: id.to_s, amount: count)
     end
+
     order = Order.new(restaurant_id: restaurant_id)
-    order.items_orders << orderItems
-    order.description = "new order"
+    order.items_orders << order_items
+    order.description = order_data['description']
     order.status = 0
-    order.meal = "lunch"
+    order.meal = order_data['meal']
     order.owner = current_user
     invited_users =[]
+    if(params.has_key?('users'))
     invited_users << User.find_by_name(params.fetch('users'))
-    puts '------------------------------------------------' + invited_users.inspect + '------------------------------------------------'
     order.users << invited_users
+    end
+
     if order.save
       Notification.create(order, :create, current_user, invited_users)
+      flash[:notice] = "Order successfully created"
       redirect_to :back
     else
       redirect_to root_path
