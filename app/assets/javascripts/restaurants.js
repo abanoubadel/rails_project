@@ -1,91 +1,82 @@
 //= require tag-it.min
 
 $(function () {
-     var i=0;
-    // jQuery UI Draggable
-    $("#product li").draggable({
-
-        // brings the item back to its place when dragging is over
-        revert:true,
-
-        // once the dragging starts, we decrease the opactiy of other items
-        // Appending a class as we do that with CSS
-        drag:function () {
-            $(this).addClass("active");
-            $(this).closest("#product").addClass("active");
-        },
-
-        // removing the CSS classes once dragging is over.
-        stop:function () {
-            $(this).removeClass("active").closest("#product").removeClass("active");
-        }
-    });
-
-    // jQuery Ui Droppable
-    $(".basket").droppable({
-
-        // The class that will be appended to the to-be-dropped-element (basket)
-        activeClass:"active",
-
-        // The class that will be appended once we are hovering the to-be-dropped-element (basket)
-        hoverClass:"hover",
-
-        // The acceptance of the item once it touches the to-be-dropped-element basket
-        // For different values http://api.jqueryui.com/droppable/#option-tolerance
-        tolerance:"touch",
-        drop:function (event, ui) {
-
-            var basket = $(this),
-                move = ui.draggable,
-                itemId = basket.find("ul li[data-id='" + move.attr("data-id") + "']");
-
-            // To increase the value by +1 if the same item is already in the basket
-            if (itemId.html() != null) {
-                itemId.find("input").val(parseInt(itemId.find("input").val()) + 1);
-            }
-            else {
-                // Add the dragged item to the basket
-                addBasket(basket, move);
-
-                // Updating the quantity by +1" rather than adding it to the basket
-                move.find("input").val(parseInt(move.find("input").val()) + 1);
-            }
-        }
-    });
-
-    // This function runs onc ean item is added to the basket
-    function addBasket(basket, move) {
-        var data_id = move.attr("data-id")
-        basket.find("ul").append('<li data-id="' +data_id + '">'
-            + '<span class="name">' + move.find("h3").html() + '</span>'
-            + '<input name="data['+data_id+']" class="count" value="1" type="text">'
-            + '<button class="delete">&#10005;</button>');
-        i++;
-    }
 
 
-    // The function that is triggered once delete button is pressed
-    //$(".basket ul li button.delete").live("click", function () {
-    //    $(this).closest("li").remove();
-    //});
     if (typeof tags === 'undefined') {
         tags = []
     }
     $("#myTags").tagit({
         availableTags: tags,
-        beforeTagAdded: function(event, ui) {
-            if(tags.indexOf(ui.tagLabel)>-1){
-                $(".basket").append($("<input name='users[]' type='hidden' value='"+ui.tagLabel+"'>"))
+        beforeTagAdded: function (event, ui) {
+            if (tags.indexOf(ui.tagLabel) > -1) {
+                $(".basket").append($("<input name='users[]' type='hidden' value='" + ui.tagLabel + "'>"))
                 $("#tag_err").html("")
 
-            }else {
-                $("#tag_err").html(ui.tagLabel+" isn't in your frindes or groups")
+            } else {
+                $("#tag_err").html(ui.tagLabel + " isn't in your frindes or groups")
                 $("#myTags").tagit("removeTagByLabel", ui.tagLabel);
             }
         }
     });
 
 
+    $('#res_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+////////////////////////////////////////////////////////////////////
+    var i = 0;
+    var basket = $('.basket');
+    var table = $("#order_tabel");
+
+    //The function that is triggered once delete button is pressed
+    $(".basket").delegate('a.delete', "click", function () {
+       var $li= $(this).closest("li");
+        data_id = $li.data('id');
+        changeBtn(false, data_id);
+        $li.remove();
+        return false
+    });
+    table.delegate('button', 'click', function () {
+        var $el = $(this);
+        var row = $el.parents('tr');
+        if (changeBtn($el)) {
+            addBasket(basket, row)
+        } else {
+            basket.find('li[data-id=' + row.data('id')+']').remove();
+        }
+
+    })
 
 
+    function addBasket(basket, $ele) {
+        var data_id = $ele.data('id');
+        var price = $ele.data('price');
+        var data_name = $ele.data('name');
+
+        basket.find("ul").append('<li data-id="' + data_id + '">'
+            + '<span class="name">' + data_name + '</span>'
+            + '<input name="data[' + data_id + ']" class="count" value="1" type="text">'
+            + '<a href="#" class="delete">&#10005;</a>');
+        i++;
+    }
+
+    function changeBtn($el, data_id) {
+
+        if ($el == false) {
+            $el= table.find('tr[data-id='+data_id+']').find('button')
+        }
+        if ($el.text().trim() == "order") {
+            $el.find('span').text(" remove");
+            $el.addClass("btn-danger");
+            $el.removeClass("btn-default");
+            return true;
+        } else {
+            $el.find('span').text(" order");
+            $el.removeClass("btn-danger");
+            $el.addClass("btn-default");
+            return false;
+        }
+    }
 });

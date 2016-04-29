@@ -1,6 +1,27 @@
-<h1><%= @restaurant.name %></h1>
-<%= render 'menu' %>
+<section class="content-header">
+  <div class="widget-user-header" style="color: grey; background-color: white">
+    <div class="row box box-widget widget-user-2" style="padding: 10px">
+      <div class="col-md-2">
+        <dev class="widget-user-image" >
+          <%= render 'restaurant_img', {restaurant: @restaurant ,width:"100px"} %>
+        </dev>
+        <h3 class="widget-user-username" style="margin-left: 100px ;margin-top :15px;color: #0d6aad" >
+          <%= @restaurant.name %></h3>
+        <h5 class="widget-user-desc">
+          <%= truncate @restaurant.location	,length:20 %></h5>
+      </div>
+      <div class="col-md-10">
+        <div class="attachment-block "  style="padding:25px;margin-top: 10px">
+            <%= @restaurant.description	  %>
+        </div>
+      </div>
+    </div>
 
+  </div>
+</section>
+<section class="content">
+  <%= render 'menu' %>
+</section>
 <!-- PRODUCT LIST -->
 
 

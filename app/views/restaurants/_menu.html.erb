@@ -1,61 +1,98 @@
 <div class="row">
 
   <div class="col-md-8">
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs" id="res_tab">
+        <li class="active"><a href="#tab_1" data-toggle="tab">Active menu</a></li>
+        <li><a href="#tab_2" data-toggle="tab">menu screen shot</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_1">
+          <style>
+              #order_tabel td{
+                padding-top: 50px;
+              }
+          </style>
+          <table class="table table-striped" id="order_tabel">
+            <tr>
+              <th>ID</th>
+              <th>image</th>
+              <th>name</th>
+              <th>about</th>
+              <th>price</th>
+              <th>action</th>
+            </tr>
+            <% @items.each do |item| %>
+                <tr class="clear"
+                    data-id="<%= item.id %>"
+                    data-name="<%= item.name %>"
+                    data-price="<%= item.price %>">
+                  <td > <%= item.id %>
+                  </td>
+                  <td style="padding-top: 0px"><%= image_tag(item.image.url, width: "140", height: "100") %>
+                  </td>
+                  <td><%= item.name %></td>
+                  <td><%= item.comment %></td>
+                  <td><a href="#">
+                    <span class="pull-right"><%= item.price %> $</span>
+                  </a></td>
+                  <td>
+                    <%=	button_tag(class: 'btn btn-default') do  %>
+                    <i class="fa fa-cart-plus"></i><span> order</span>
+                    <%end %>
+                  </td>
+                </tr>
 
-    <% @items.each do |item| %>
-        <section id="product" class="col-md-3">
-          <ul class="clear">
-            <li data-id="<%= item.id %>">
-              <a href="#">
-                <%= image_tag(item.image.url , width: "140", height: "100" )	%>
-                <h3><%= item.name %></h3>
-                <p><%= item.comment %></p>
-                <span class="pull-right alert-danger"><%= item.price %> $</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-    <% end %>
-
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading"> <i class="fa  fa-cart-plus"></i> Drop what you want here:</div>
-      <div class="panel-body">
-
-    <%= form_for @order , url: {action: "create" , :controller=>"orders"} do |f|%>
-    <aside id="sidebar">
-      <div class="basket">
-        <div class="basket_list" style="width: 100%; min-height: 200px;">
-          <div class="head">
-            <span class="name">Product name</span>
-            <span class="count">Quantity</span>
-          </div>
-          <ul>
-            <!--li>
-                <span class="name">Samsung S3 asd asdasdaf dfsdghgfg dgfg</span>
-                <input class="count" value="1" type="text">
-                <button class="delete">&#10005;</button>
-            </li-->
-          </ul>
+            <% end %>
+          </table>
 
         </div>
 
+        <div class="tab-pane" id="tab_2">
+          <%= image_tag @restaurant.menu_image.url, class: 'img-responsive' %>
+        </div><!-- /.tab-pane -->
       </div>
-      <span>Tag your friends:</span>
-      <ul id="myTags">
-        <!-- Existing list items will be pre-added to the tags -->
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><i class="fa  fa-cart-plus"></i> Drop what you want here:</div>
+      <div class="panel-body">
 
-      </ul>
-      <p id="tag_err" class="alert-danger"></p>
-      <%= javascript_tag do %>
-          tags =<%= raw @userList.to_json %>;
-      <% end %>
+        <%= form_for @order, url: {action: "create", :controller => "orders"} do |f| %>
+            <aside id="sidebar">
+              <div class="basket">
+                <div class="basket_list" style="width: 100%; min-height: 200px;">
+                  <div class="head">
+                    <span class="name">Product name</span>
+                    <span class="count">Quantity</span>
+                  </div>
+                  <ul>
+                    <!--li>
+                        <span class="name">Samsung S3 asd asdasdaf dfsdghgfg dgfg</span>
+                        <input class="count" value="1" type="text">
+                        <button class="delete">&#10005;</button>
+                    </li-->
+                  </ul>
 
-    </aside>
-        <%=f.button(:class =>'btn btn-success center-block ') do %>
-                <i class="fa fa-rocket "> Order now and enjoy!!</i><%	end   %>
-    <% end %>
+                </div>
+
+              </div>
+              <span>Tag your friends:</span>
+              <ul id="myTags">
+                <!-- Existing list items will be pre-added to the tags -->
+
+              </ul>
+              <p id="tag_err" class="alert-danger"></p>
+              <%= javascript_tag do %>
+                  tags =<%= raw @userList.to_json %>;
+              <% end %>
+
+            </aside>
+            <%= f.button(:class => 'btn btn-success center-block ') do %>
+                <i class="fa fa-rocket "> Order now and enjoy!!</i>
+            <% end %>
+        <% end %>
       </div>
     </div>
 
