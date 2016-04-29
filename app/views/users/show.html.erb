@@ -47,18 +47,21 @@
         </ul>
         <div class="tab-content">
           <div class="active tab-pane" id="activity">
-
+            <div class="box-body">
+              <ul class="todo-list ui-sortable" style="overflow-x: hidden; height: 400px;">
+              <% @activities.each do |activity| %>
+                <% if activity %>
+                  <li>
+                    <span class="text"><%= render_activity activity %></span>
+                    <!-- <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small> -->
+                  </li>
+                <% end %>    
+              <% end %>
+              </ul>
+            </div>
           </div><!-- /.tab-pane -->
           <div class="tab-pane" id="settings">
-            <%= form_for @user do |f|%>
-              <div class="form-group">
-                <%= f.label :DisplayName, class: "col-sm-2 control-label" %>
-                <div class="col-sm-10">
-                  <%= f.text_field :name, class: 'form-control', id: "inputName" %>
-                </div>
-              </div>
-              <%= f.submit "Update", class: 'btn btn-primary' %>
-            <% end %>
+           <%= link_to "Edit Settings", edit_user_registration_path%> 
           </div><!-- /.tab-pane -->
         </div><!-- /.tab-content -->
       </div><!-- /.nav-tabs-custom -->

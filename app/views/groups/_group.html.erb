@@ -3,12 +3,14 @@
 		<div class="col col-md-8" style="padding: 0 25px">
 			<%= link_to group.name, group, remote: true%>
 		</div>
-		<div class="col col-md-2">
-			<%= link_to "Edit", edit_group_path(group), class: "pull-right btn btn-primary", remote: true %>
-		</div>
-		<div class="col col-md-2" style="padding: 0 20px">
-			<%= link_to "Delete", group, class: "pull-right btn btn-danger", remote: true, method: :delete,  data: { confirm: 'Are you sure?' } %>
-		</div>
+		<% if current_user.id == group.group_admin_id %>
+			<div class="col col-md-2">
+				<%= link_to "Edit", edit_group_path(group), class: "pull-right btn btn-primary", remote: true %>
+			</div>
+			<div class="col col-md-2" style="padding: 0 20px">
+				<%= link_to "Delete", group, class: "pull-right btn btn-danger", remote: true, method: :delete,  data: { confirm: 'Are you sure?' } %>
+			</div>
+		<% end %>
 	</div>
 
 </li>
