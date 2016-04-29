@@ -10,7 +10,11 @@ class Notification < ActiveRecord::Base
   		recipients.each do |recipient|
   		  @notification = self.new
   		  @notification.activity_id = activity.id
-  		  @notification.user_id = recipient.id
+        if recipient.is_a? Numeric
+          @notification.user_id = recipient
+        else
+          @notification.user_id = recipient.id
+        end
   		  @notification.status = 0
   		  @notification.save
   		end

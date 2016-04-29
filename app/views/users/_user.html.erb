@@ -1,18 +1,20 @@
 <div class="col-md-4" style="margin-top: 20px;">
-		<%= image_tag("/assets/user2-160x160-69047ba5abb543f0beb7ec5a2dd671d8.jpg", class: "img-circle", :style => 'margin-left: 15px;width: 80px;margin-top:25px;  ') %>
-		
-    	<%= link_to user.name, user , :style => 'padding-left:5px;font-size: 20px;' %>
- 		<!-- <div id="follow_form"> -->
+	<%= image_tag("/assets/user2-160x160-69047ba5abb543f0beb7ec5a2dd671d8.jpg", class: "img-circle", :style => 'margin-left: 15px;width: 80px;margin-top:25px;  ') %>
+
+	<%= link_to user.name, user , :style => 'padding-left:5px;font-size: 20px;' %>
+		<!-- <div id="follow_form"> -->
+
+ 	<% if current_user != user %>
  		<% if current_user.following?(user) %>
   			<%= form_for(current_user.relationships.find_by(followed_id: user.id),
              html: { method: :delete }) do |f| %>
 			 <%= f.submit "Delete Contact",class: "btn btn-large", style: "margin-left: 100px; margin-top:-60px;"%>
 			<% end %>
-
 		<% else %>
 			<%= form_for(current_user.relationships.build(followed_id: user.id)) do |f| %>
   					<div><%= f.hidden_field :followed_id %></div>
   					<%= f.submit "Add Contact",class: "btn btn-primary", style: "margin-left: 100px; margin-top:-60px;"%>
 				<% end %>
  		<% end %>
+ 	<% end %>
 </div>

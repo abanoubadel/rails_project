@@ -1,35 +1,41 @@
-<h2 class="page-header"> Manage Groups </h2>
+<% provide(:title, 'Groups') %>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Manage Groups
+  </h1>
+</section>
 
-<div class="row">
+<!-- Main content -->
+<section class="content">
 
-  <div class="col-md-2 col-md-offset-4 pull-right ">
-    <%= link_to new_group_path, remote: true do %>
-        <button class="btn btn-success">New</button>
-    <% end %>
-
-
+  <div class="row">
+    <div class="col-md-12" id="group-form">
+      <%= render 'form' %>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-2" id="group-form" style="display:none;"></div>
-</div>
-
-<div class="row" style="padding: 10px 15px">
-  <div class="col-md-6 ">
-            <!-- Widget: user widget style 1 -->
-            <div class="box box-widget widget-user-2">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div class="widget-user-header bg-yellow">
-                  <h3 class="widget-user-username">Groups</h3>
-                </div>
-                <div class="box-footer no-padding">
-                  <ul class="nav nav-stacked "  id="groups">
-                        <%= render @groups %>
-                  </ul>
-                </div>
-            </div><!-- /.widget-user -->
-  </div><!-- /.col -->
-  <div class="col-md-6" id="group-data" style="display:none;"></div>
-</div>
-
+  <div class="row">
+    <div class="col-md-6 ">
+      <!-- Widget: user widget style 1 -->
+      <div class="box box-widget widget-user-2">
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header bg-yellow">
+            <h3 class="widget-user-username">Groups</h3>
+          </div>
+          <div class="box-footer no-padding">
+            <ul class="nav nav-stacked" id="groups">
+                <% if @groups.blank? %>
+                  <li style="padding: 10px">
+                    <span class="text">No Groups</span>
+                  </li>
+                <% else %>
+                  <%= render @groups %>
+                <% end %>
+            </ul>
+          </div>
+      </div><!-- /.widget-user -->
+    </div><!-- /.col -->
+    <div class="col-md-6" id="group-data" style="display:none;"></div>
+  </div>
+</section><!-- /.content -->

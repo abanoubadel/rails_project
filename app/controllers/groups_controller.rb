@@ -7,7 +7,12 @@ class GroupsController < ApplicationController
 
   def index
     user=User.find(current_user.id)
-    @groups = user.groups  
+    @groups = user.groups
+
+    @group = Group.new
+    @group_owner = User.find(current_user.id)
+    @friends = @group_owner.followed_users
+    
     respond_to do |format|
       format.html
       # format.json
@@ -23,7 +28,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group_owner = User.find(current_user.id)
-    @friends =  @group_owner.followed_users
+    @friends = @group_owner.followed_users
   end
 
   def create
@@ -33,6 +38,7 @@ class GroupsController < ApplicationController
       @group = Group.new(group_params)
       @group_owner.groups << @group
       if @group.save(validate: false)
+        Notification.create(@group, :create, current_user, @group.user_ids)
         flash[:notice] = 'Group Created'
       else
       end
