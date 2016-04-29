@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   def index
     @orders=[]
     @orders = Order.where("owner_id = #{current_user.id}")
+
   end
 
   # GET /orders/1
