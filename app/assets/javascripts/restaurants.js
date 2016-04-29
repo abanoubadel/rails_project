@@ -1,5 +1,4 @@
 //= require tag-it.min
-
 $(function () {
 
 

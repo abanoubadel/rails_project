@@ -9,9 +9,9 @@
       <div class="tab-content">
         <div class="tab-pane active" id="tab_1">
           <style>
-              #order_tabel td{
-                padding-top: 50px;
-              }
+            #order_tabel td {
+              padding-top: 50px;
+            }
           </style>
           <table class="table table-striped" id="order_tabel">
             <tr>
@@ -27,7 +27,7 @@
                     data-id="<%= item.id %>"
                     data-name="<%= item.name %>"
                     data-price="<%= item.price %>">
-                  <td > <%= item.id %>
+                  <td> <%= item.id %>
                   </td>
                   <td style="padding-top: 0px"><%= image_tag(item.image.url, width: "140", height: "100") %>
                   </td>
@@ -37,9 +37,9 @@
                     <span class="pull-right"><%= item.price %> $</span>
                   </a></td>
                   <td>
-                    <%=	button_tag(class: 'btn btn-default') do  %>
-                    <i class="fa fa-cart-plus"></i><span> order</span>
-                    <%end %>
+                    <%= button_tag(class: 'btn btn-default') do %>
+                        <i class="fa fa-cart-plus"></i><span> order</span>
+                    <% end %>
                   </td>
                 </tr>
 
@@ -78,11 +78,27 @@
                 </div>
 
               </div>
-              <span>Tag your friends:</span>
+              <%= f.label 'description' %>
+              <%= f.text_field :description, class: 'form-control' %>
+              <div class="form-group">
+                <%= f.label 'Select Meal' %>
+                <%= f.select(:meal, [['breakfast', 1],
+                                     ['lunch', 2],
+                                     ['dinner', 3]],
+                             {},
+                             {class: 'form-control'}
+
+                    )
+                %>
+              </div>
+
+              <%= f.label 'Tag your friends'
+              %>
               <ul id="myTags">
                 <!-- Existing list items will be pre-added to the tags -->
 
               </ul>
+
               <p id="tag_err" class="alert-danger"></p>
               <%= javascript_tag do %>
                   tags =<%= raw @userList.to_json %>;
