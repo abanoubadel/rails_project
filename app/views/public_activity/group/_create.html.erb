@@ -1,0 +1,3 @@
+<% if activity.trackable %>
+<%= link_to activity.owner.name, activity.owner if activity.owner %> has added you to new group <%= activity.trackable.name %>
+<% end %>

@@ -1,31 +1,39 @@
-<p id="notice"><%= notice %></p>
 <% provide(:title, 'Friends') %>
 
-<h1 class="content-header"> Friends List </h1>
+<section class="content-header">
+  <h1>
+    Friends List
+  </h1>
+</section>
 
-<%= will_paginate %>
+<!-- Main content -->
+<section class="content">
+	<p id="notice"><%= notice %></p>
 
-<%= form_tag(users_path, :method => "get", id: "search-form") do%>
-<!-- text field tag=action,args,identifier,placeholdertext... -->
-<div class="box-body">
-<div class="input-group">
-<span class="input-group-addon">@</span>
-  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Friends", style: "width: 500px;" ,type: "Add Friend", data: {autocomplete: users_autocomplete_user_name_path} %>  
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <%end%>
-</div>
-</div>
+	<%= will_paginate %>
 
-<script type="text/javascript" charset="utf-8">
-  $('#search').bind('railsAutocomplete.select', function(event, data){
-  $('#search-form').submit()
-  });
-</script>
+	<%= form_tag(users_path, :method => "get", id: "search-form") do%>
+	<!-- text field tag=action,args,identifier,placeholdertext... -->
+	<div class="box-body">
+	<div class="input-group">
+	<span class="input-group-addon">@</span>
+	  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Friends", style: "width: 500px;" ,type: "Add Friend", data: {autocomplete: users_autocomplete_user_name_path} %>  
+	  <%= submit_tag "Search", class: "btn btn-primary" %>
+	  <%end%>
+	</div>
+	</div>
 
-<div class="row" style="overflow-y: scroll; height:440px;width:98%;">
-    <%= render @users %>
-</div>
+	<script type="text/javascript" charset="utf-8">
+	  $('#search').bind('railsAutocomplete.select', function(event, data){
+	  $('#search-form').submit()
+	  });
+	</script>
 
-<%= will_paginate %>
+	<div class="row" style="overflow-y: scroll; height:440px;width:98%;">
+	    <%= render @users %>
+	</div>
+
+	<%= will_paginate %>
+</section><!-- /.content -->
 
 

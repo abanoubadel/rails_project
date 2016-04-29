@@ -1,34 +1,37 @@
-
-<%= form_for (@group), remote: true do |f| %>
-  <% if @group.errors.any? %>
-    <% @group.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
-    <% end %>
-  <% end %>
-
-  <div class="form-group">
-
-
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description, class: 'form-control' %>
-
-    <%= f.label :group_image %>
-    <%= f.text_field :group_image, class: 'form-control' %>
-
-    <%= f.label :members %>
-    <div class="field">
-      <%= collection_check_boxes(:group, :user_ids, @friends, :id, :name) %>
-    </div>
-
-    <%= f.hidden_field :group_admin_id, :value => current_user.id %>
-
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">Create Group</h3>
   </div>
-  <br>
-  <%= f.submit "Submit", class:'btn btn-primary' %>
-  <%= link_to "Cancle", groups_path, class:'btn btn--default' %>
-  
-<% end %>
+  <div class="box-body">
 
+    <%= form_for (@group), remote: true do |f| %>
+      <% if @group.errors.any? %>
+        <% @group.errors.full_messages.each do |msg| %>
+          <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.text_field :description, class: 'form-control', placeholder: "Description" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.text_field :group_image, class: 'form-control', placeholder: "Image" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.label :members %>
+          <div class="field">
+            <%= collection_check_boxes(:group, :user_ids, @friends, :id, :name) %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <%= f.hidden_field :group_admin_id, :value => current_user.id %>
+          <%= f.submit "Submit", class:'btn btn-primary' %>
+        </div>
+      </div>
+      <% end %>
+  </div><!-- /.box-body -->
+</div>
