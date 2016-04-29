@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   before_action :authenticate_user!
-
   def new
     @owner = current_user
     @order = Order.new

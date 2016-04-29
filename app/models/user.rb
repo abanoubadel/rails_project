@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include PublicActivity::Common
-  
+########################################## relations ##########################
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :orders
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -11,15 +11,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 	has_many :selfOrders, class_name: 'Order' , foreign_key: 'owner_id'
 
-
   scope :name_like, -> (name) { where("name like ? ", name)}
 
   devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable, :lockable, :zxcvbnable,
        :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
-
-  
-
 
 
 	def send_devise_notification(notification, *args)
@@ -31,7 +27,6 @@ class User < ActiveRecord::Base
 	    user.email = auth.info.email
 	    user.password = Devise.friendly_token[0,20]
 	    user.name = auth.info.name   # assuming the user model has a name
-	    #user.image = auth.info.image # assuming the user model has an image
 	  end
 	end
 

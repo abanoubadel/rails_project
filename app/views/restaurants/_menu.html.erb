@@ -79,31 +79,26 @@
 
               </div>
               <%= f.label 'description' %>
-              <%= f.text_field :description, class: 'form-control' %>
+              <%= f.text_field :description, class: 'form-control', disabled: disabled? %>
               <div class="form-group">
                 <%= f.label 'Select Meal' %>
                 <%= f.select(:meal, [['breakfast', 1],
                                      ['lunch', 2],
                                      ['dinner', 3]],
                              {},
-                             {class: 'form-control'}
-
+                             {class: 'form-control', disabled: disabled?}
                     )
                 %>
               </div>
-
               <%= f.label 'Tag your friends'
               %>
               <ul id="myTags">
                 <!-- Existing list items will be pre-added to the tags -->
-
               </ul>
-
               <p id="tag_err" class="alert-danger"></p>
               <%= javascript_tag do %>
                   tags =<%= raw @userList.to_json %>;
               <% end %>
-
             </aside>
             <%= f.button(:class => 'btn btn-success center-block ') do %>
                 <i class="fa fa-rocket "> Order now and enjoy!!</i>
