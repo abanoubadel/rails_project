@@ -1,41 +1,56 @@
-<p id="notice"><%= notice %></p>
-<table>
-  <tr>
-    <td>meal</td>
-    <td><%= @order.get_meal %>
-    </td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td><%= @order.description %>
-    </td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td><%= @order.get_status %>
-    </td>
-  </tr>
-  <tr>
-    <td>since</td>
-    <td><%= @order.created_at %>
-    </td>
-  </tr>
-  <tr>
-    <td>items</td>
-    <td>
-      <% @order.items.each do |item| %>
-          <span><%= item.name %></span>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>invited</td>
-    <td>
-      <% @order.users.each do |user| %>
-          <span><%= user.name %></span>
-      <% end %>
-    </td>
-  </tr>
-</table>
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<section class="content-header">Order invitation</section>
+<section class="content">
+  <div class="box">
+
+    <table class="table TABLE-BORDERED">
+      <tr>
+        <td>meal</td>
+        <td><%= @order.get_meal %>
+        </td>
+      </tr>
+      <tr>
+        <td>description</td>
+        <td><%= @order.description %>
+        </td>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td><%= @order.get_status %>
+        </td>
+      </tr>
+      <tr>
+        <td>since</td>
+        <td><%= @order.created_at %>
+        </td>
+      </tr>
+      <tr>
+        <td>items</td>
+        <td>
+          <% @order.items.each do |item| %>
+              <span><%= item.name %></span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>invited</td>
+        <td>
+          <% @order.users.each do |user| %>
+              <span><%= user.name %></span>
+          <% end %>
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          Action
+        </td>
+        <td>
+          <%= link_to 'Join', edit_order_path(@order) ,class: 'btn btn-success'  %> |
+          <%= link_to 'skip', orders_path, class: 'btn btn-danger ' %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</section>
+
