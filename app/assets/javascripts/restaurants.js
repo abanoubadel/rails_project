@@ -9,7 +9,7 @@ $(function () {
         availableTags: tags,
         beforeTagAdded: function (event, ui) {
             if (tags.indexOf(ui.tagLabel) > -1) {
-                $(".basket").append($("<input name='users[]' type='hidden' value='" + ui.tagLabel + "'>"))
+                $("form#new_order").append($("<input name='users[]' type='hidden' value='" + ui.tagLabel + "'>"))
                 $("#tag_err").html("")
 
             } else {
@@ -56,7 +56,7 @@ $(function () {
 
         basket.find("ul").append('<li data-id="' + data_id + '">'
             + '<span class="name">' + data_name + '</span>'
-            + '<input name="data[' + data_id + ']" class="count" value="1" type="text">'
+            + '<input name="order_items[' + data_id + ']" class="count" value="1" type="text">'
             + '<a href="#" class="delete">&#10005;</a>');
         i++;
     }
