@@ -1,15 +1,19 @@
 //= require tag-it.min
 $(function () {
 
-
     if (typeof tags === 'undefined') {
         tags = []
     }
     $("#myTags").tagit({
         availableTags: tags,
         beforeTagAdded: function (event, ui) {
-            if (tags.indexOf(ui.tagLabel) > -1) {
-                $("form#new_order").append($("<input name='users[]' type='hidden' value='" + ui.tagLabel + "'>"))
+            var tagLabel = ui.tagLabel;
+            if (tags.indexOf(tagLabel) > -1) {
+                var form = $("form#new_order");
+                if (tagLabel.includes('(group)'))
+                    form.append($("<input name='groups[]' type='hidden' value='" + tagLabel.slice(0, tagLabel.indexOf('(')).trim() + "'>"))
+                else
+                    form.append($("<input name='users[]' type='hidden' value='" + ui.tagLabel + "'>"))
                 $("#tag_err").html("")
 
             } else {
@@ -31,7 +35,7 @@ $(function () {
 
     //The function that is triggered once delete button is pressed
     $(".basket").delegate('a.delete', "click", function () {
-       var $li= $(this).closest("li");
+        var $li = $(this).closest("li");
         data_id = $li.data('id');
         changeBtn(false, data_id);
         $li.remove();
@@ -43,7 +47,7 @@ $(function () {
         if (changeBtn($el)) {
             addBasket(basket, row)
         } else {
-            basket.find('li[data-id=' + row.data('id')+']').remove();
+            basket.find('li[data-id=' + row.data('id') + ']').remove();
         }
 
     })
@@ -62,9 +66,8 @@ $(function () {
     }
 
     function changeBtn($el, data_id) {
-
         if ($el == false) {
-            $el= table.find('tr[data-id='+data_id+']').find('button')
+            $el = table.find('tr[data-id=' + data_id + ']').find('button')
         }
         if ($el.text().trim() == "order") {
             $el.find('span').text(" remove");
