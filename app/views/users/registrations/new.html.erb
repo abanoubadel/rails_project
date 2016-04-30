@@ -2,7 +2,7 @@
 <p class="login-box-msg">Register a new membership</p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
 
     <div class="form-group has-feedback">
       <%= f.text_field :name, class: "form-control", placeholder: "Full name" %>
@@ -18,7 +18,7 @@
       <%= f.password_field :password, autocomplete: "off", class: "form-control estimate-password", placeholder: "Password" %>
       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       <% if @validatable %>
-        <span class="help-block"><%= @minimum_password_length %> characters minimum</span>
+          <span class="help-block"><%= @minimum_password_length %> characters minimum</span>
       <% end %>
     </div>
 
@@ -34,6 +34,11 @@
 
     <div class="form-group has-feedback">
       <%= f.text_area :bio, class: "form-control", placeholder: "Bio" %>
+      <span class="glyphicon glyphicon-info-sign form-control-feedback"></span>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.file_field :avatar, class: "form-control", placeholder: "avata" %>
       <span class="glyphicon glyphicon-info-sign form-control-feedback"></span>
     </div>
 

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :invitations, :new, :edit, :create, :update, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_items , only: [:create,:update]
   # GET /orders
   # GET /orders.json
   def index
@@ -54,15 +55,16 @@ class OrdersController < ApplicationController
 
     if (params.has_key?('users'))
       invited_users << User.find_by_name(params.fetch('users'))
-      order.users << invited_users.uniq
     end
+    order.users << invited_users
 
     if order.save
       Notification.create(order, :create, current_user, invited_users)
       flash[:notice] = "Order successfully created"
       redirect_to :back
     else
-      redirect_to root_path
+      flash[:notice] = "Order  error"
+      redirect_to :back
     end
   end
 
@@ -123,5 +125,13 @@ class OrdersController < ApplicationController
                                     user_id: current_user.id)
     end
     order_items
+
+  end
+  def ensure_items
+    if (!params.has_key?('order_items'))
+      flash[:notice]='cant creat blank order'
+      redirect_to :back
+      return false
+    end
   end
 end

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160430190857) do
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -80,16 +81,12 @@ ActiveRecord::Schema.define(version: 20160430190857) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.string   "description",        limit: 255
-    t.string   "group_image",        limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "group_admin_id",     limit: 4,   null: false
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
+    t.string   "name",           limit: 255
+    t.string   "description",    limit: 255
+    t.string   "group_image",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "group_admin_id", limit: 4,   null: false
   end
 
   add_index "groups", ["name"], name: "index_groups_on_name", unique: true, using: :btree
