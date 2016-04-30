@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :show, :make_order, :join_order]
   before_action :is_allowed_to_join?, :only => :join_order
 
   def index

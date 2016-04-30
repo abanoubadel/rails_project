@@ -3,6 +3,7 @@
 <section class="content-header">
   <h1>
     Manage Groups
+    <%= link_to "New", new_group_path, remote: true, class: 'btn btn-success' %>
   </h1>
 </section>
 
@@ -10,9 +11,7 @@
 <section class="content">
 
   <div class="row">
-    <div class="col-md-12" id="group-form">
-      <%= render 'form' %>
-    </div>
+    <div  class="col-md-12" id="group-form"  style=""></div>
   </div>
 
   <div class="row">

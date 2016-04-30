@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy ]
   before_action :all_groups, only: [:index, :create, :update, :destroy]
   respond_to :html, :js
 

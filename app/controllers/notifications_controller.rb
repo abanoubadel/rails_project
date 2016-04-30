@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:list, :update, :index]
 
 	def list
 	  @notifications = Notification.where("user_id = #{current_user.id}").order("created_at desc").limit(10)
