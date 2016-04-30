@@ -1,9 +1,8 @@
-class StaticPagesController < ApplicationController
+class StaticPagesController < ActionController::Base
 
-  before_action :authenticate_user!, only: [:index]
 
   def index
-      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
+    
   end
 
   def home
@@ -17,4 +16,7 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+
+  
 end

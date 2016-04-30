@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: []
+  before_action :authenticate_user!, only: [:timeline, :index, :show, :following]
   before_action :correct_user,   only: []
   autocomplete :user, :name, :full => true
   respond_to :html, :js
@@ -20,6 +20,11 @@ class UsersController < ApplicationController
        logger.debug "#{e.class}"
        redirect_to root_url
     end
+  end
+
+
+  def timeline
+      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
   end
 
 
