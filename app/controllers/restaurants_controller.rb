@@ -20,7 +20,6 @@ class RestaurantsController < ApplicationController
     @restaurant = @order.restaurant
     @items = @restaurant.items.all
     flash[:notice]='add your items to order'
-    render 'restaurants/show'
   end
 
   private

@@ -10,5 +10,6 @@ class Item < ActiveRecord::Base
 	has_many :items
   has_and_belongs_to_many :users ,join_table: 'items_orders'
 
+
 end
 
