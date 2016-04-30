@@ -17,6 +17,7 @@ class Order < ActiveRecord::Base
     Status[self.status]
   end
 
+
   def is_owner?(user)
     if self.owner_id?
       self.owner == user

@@ -1,0 +1,24 @@
+<% if @order.items_orders.blank? %>
+    <p>no orders by others yet</p>
+<% else %>
+    <table class="table table-bordered">
+      <tr>
+        <th>item</th>
+        <th>ordered by</th>
+        <th>Amount</th>
+      </tr>
+      <% @order.items_orders.each do |ordered_item| %>
+          <tr>
+            <td><%= ordered_item.item.name %></td>
+            <td>
+              <%= ordered_item.user.name %>
+            </td>
+            <td>
+              <%= ordered_item.amount %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
+<% end %>
+

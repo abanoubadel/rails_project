@@ -59,7 +59,7 @@
       <div class="panel-heading"><i class="fa  fa-cart-plus"></i> Drop what you want here:</div>
       <div class="panel-body">
 
-        <%= form_for @order, url: {action: "create", :controller => "orders"} do |f| %>
+        <%= form_for @order, url: {action: menu_action, :controller => 'orders'} do |f| %>
             <aside id="sidebar">
               <div class="basket">
                 <div class="basket_list" style="width: 100%; min-height: 200px;">
