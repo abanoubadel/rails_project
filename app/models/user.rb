@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :items, class_name: 'ItemsOrder'
   scope :name_like, -> (name) { where("name like ? ", name) }
 
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :zxcvbnable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]

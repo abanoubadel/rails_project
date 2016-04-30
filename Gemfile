@@ -53,6 +53,7 @@ gem 'public_activity'
 gem 'kaminari'
 gem 'paperclip'
 gem 'activeadmin' , '~> 1.0.0.pre2'
+gem 'remotipart'
 
 #**********************************************************************************
 

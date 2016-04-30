@@ -4,7 +4,8 @@
         <div class="box box-widget widget-user-2">
         	<!-- Add the bg color to the header using any of the bg-* classes -->
         	<div class="widget-user-image">
-                <img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                
+                 <%= image_tag @group.image.url, class: "img-circle" %>
             </div><!-- /.widget-user-image -->
         	<div class="widget-user-header bg-yellow">
                   <span class="widget-user-username"><%=@group.name%></span>

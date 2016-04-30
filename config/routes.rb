@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'timeline/index'
-
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -40,6 +38,5 @@ Rails.application.routes.draw do
 
   get 'invitations', to: 'orders#invitations'
 
-  get 'timeline', to: 'users#timeline'
 
 end

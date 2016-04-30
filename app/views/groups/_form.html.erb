@@ -19,7 +19,7 @@
           <%= f.text_field :description, class: 'form-control', placeholder: "Description" %>
         </div>
         <div class="col-md-3">
-          <%= f.text_field :group_image, class: 'form-control', placeholder: "Image" %>
+          <%= f.file_field :image, class: 'form-control', multipart: true, remote: true, placeholder: "Group_image"%>
         </div>
         <div class="col-md-3">
           <%= f.label :members %>
