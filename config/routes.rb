@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   get 'restaurants', to: 'restaurants#index', as: 'restaurants_list'
   get 'restaurants/:id', to: 'restaurants#show', as: 'restaurant'
   post 'restaurants/:id', to: 'orders#create', as: 'make_order'
-  get 'orders/restaurants/join/:order_id', to: 'restaurants#join_order', as: 'join_order'
+  get 'orders/restaurants/join/:id', to: 'restaurants#join_order', as: 'join_order'
+  patch 'orders/restaurants/join/:id', to: 'orders#join_order_update'
 
   ###################### orders ############################
 

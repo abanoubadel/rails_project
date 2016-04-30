@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   before_action :authenticate_user!
+
   def new
     @owner = current_user
     @order = Order.new
@@ -33,11 +34,6 @@ class OrdersController < ApplicationController
   def create
     restaurant_id = params.fetch(:id)
     order_data= params.fetch('order')
-    order_items=[]
-    params.fetch(:order_items).each do |id, count|
-      order_items << ItemsOrder.new(item_id: id.to_s, amount: count)
-    end
-
     order = Order.new(restaurant_id: restaurant_id)
     order.items_orders << order_items
     order.description = order_data['description']
@@ -45,9 +41,9 @@ class OrdersController < ApplicationController
     order.meal = order_data['meal']
     order.owner = current_user
     invited_users =[]
-    if(params.has_key?('users'))
-    invited_users << User.find_by_name(params.fetch('users'))
-    order.users << invited_users
+    if (params.has_key?('users'))
+      invited_users << User.find_by_name(params.fetch('users'))
+      order.users << invited_users
     end
 
     if order.save
@@ -86,6 +82,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  def join_order_update
+    @order = set_order
+    @order.items_orders << order_items
+    if @order.save
+      flash[:notice]='done!'
+    else
+      flash[:notice]='failed!'
+    end
+    redirect_to :root
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_order
@@ -97,4 +104,13 @@ class OrdersController < ApplicationController
     params.fetch(:order)
   end
 
+  def order_items()
+    order_items=[]
+    params.fetch(:order_items).each do |id, count|
+      order_items << ItemsOrder.new(item_id: id.to_s,
+                                    amount: count,
+                                    user_id: current_user.id)
+    end
+    order_items
+  end
 end

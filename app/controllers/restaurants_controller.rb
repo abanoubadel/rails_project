@@ -22,9 +22,10 @@ class RestaurantsController < ApplicationController
     flash[:notice]='add your items to order'
   end
 
+
   private
   def is_allowed_to_join?
-    order_id = params.fetch(:order_id)
+    order_id = params.fetch(:id)
     @order = Order.find order_id
     if !@order.is_user_allowed? current_user
       flash[:notice]="you aren't invited to this order"
