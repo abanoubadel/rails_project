@@ -8,6 +8,7 @@ class Item < ActiveRecord::Base
 	}
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	has_many :items
+  has_and_belongs_to_many :users ,join_table: 'items_orders'
 
 end
 

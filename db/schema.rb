@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429063733) do
+ActiveRecord::Schema.define(version: 20160430080354) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -113,11 +113,14 @@ ActiveRecord::Schema.define(version: 20160429063733) do
 
   add_index "items", ["restaurant_id"], name: "index_items_on_restaurant_id", using: :btree
 
-  create_table "items_orders", id: false, force: :cascade do |t|
+  create_table "items_orders", force: :cascade do |t|
     t.integer "order_id", limit: 4, null: false
     t.integer "item_id",  limit: 4, null: false
     t.integer "amount",   limit: 4
+    t.integer "user_id",  limit: 4
   end
+
+  add_index "items_orders", ["user_id"], name: "index_items_orders_on_user_id", using: :btree
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -217,5 +220,6 @@ ActiveRecord::Schema.define(version: 20160429063733) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "items", "restaurants"
+  add_foreign_key "items_orders", "users"
   add_foreign_key "orders", "restaurants"
 end
