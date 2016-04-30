@@ -5,7 +5,6 @@ class Order < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_and_belongs_to_many :items
   belongs_to :owner, :class_name => "User", foreign_key: :owner_id
-
   Meals={1 => 'breakfast', 2 => 'lunch', 3 => 'dinner'}
   Status={0 => 'inactive', 1 => 'active'}
 

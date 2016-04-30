@@ -90,11 +90,14 @@
                     )
                 %>
               </div>
+              <% if (!disabled?) %>
+
               <%= f.label 'Tag your friends'
               %>
-              <ul id="myTags">
-                <!-- Existing list items will be pre-added to the tags -->
-              </ul>
+                  <ul id="myTags">
+                    <!-- Existing list items will be pre-added to the tags -->
+                  </ul>
+              <% end %>
               <p id="tag_err" class="alert-danger"></p>
               <%= javascript_tag do %>
                   tags =<%= raw @userList.to_json %>;
