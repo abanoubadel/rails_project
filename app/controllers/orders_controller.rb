@@ -41,9 +41,19 @@ class OrdersController < ApplicationController
     order.meal = order_data['meal']
     order.owner = current_user
     invited_users =[]
+
+    #this sql shoud be optmized
+    if (params.has_key?('groups'))
+      invited_groups = []
+      invited_groups << Group.find_by_name(params.fetch('groups'))
+      invited_groups.each do |group|
+        invited_users += group.users;
+      end
+    end
+
     if (params.has_key?('users'))
       invited_users << User.find_by_name(params.fetch('users'))
-      order.users << invited_users
+      order.users << invited_users.uniq
     end
 
     if order.save
