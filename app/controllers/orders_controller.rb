@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :invitations, :new, :edit, :create, :update, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_items , only: [:create,:update]
+  before_action :ensure_items, only: [:create, :join_order_update]
   # GET /orders
   # GET /orders.json
   def index
@@ -74,7 +74,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       @order.description = order_params['description']
       @order.meal = order_params['meal'].to_i
-      @order.items =Item.find order_params['items'].take_while { |i| i.to_i > 0 }
+      @order.items =Item.find order_params['item_ids'].take_while { |i| i.to_i > 0 }
+      @order.status = order_params['status']
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
@@ -127,6 +128,7 @@ class OrdersController < ApplicationController
     order_items
 
   end
+
   def ensure_items
     if (!params.has_key?('order_items'))
       flash[:notice]='cant creat blank order'
@@ -134,4 +136,5 @@ class OrdersController < ApplicationController
       return false
     end
   end
+
 end

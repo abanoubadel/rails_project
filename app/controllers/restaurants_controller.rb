@@ -31,6 +31,10 @@ class RestaurantsController < ApplicationController
     if !@order.is_user_allowed? current_user
       flash[:notice]="you aren't invited to this order"
       redirect_to :root
+    elsif @order.closed?
+      flash[:notice]='sorry this order has been closed'
+      redirect_to :root
     end
   end
 end
+

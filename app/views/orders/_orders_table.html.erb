@@ -3,10 +3,6 @@
 <div class="box box-info">
   <div class="box-header with-border">
     <h3 class="box-title">Latest Orders</h3>
-    <div class="box-tools pull-right">
-      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-    </div>
   </div><!-- /.box-header -->
   <div class="box-body">
     <div class="table-responsive">
@@ -17,19 +13,21 @@
           <th>description</th>
           <th>status</th>
           <th>date</th>
+          <th>action</th>
         </tr>
         </thead>
         <tbody>
         <% @orders.each do |order| %>
           <% if order %>
             <tr>
-              <td><%= order.id %></td>
+              <td><%=link_to order.id,order_path(order) %></td>
               <td><%= order.description %></td>
-              <td><span class="label label-success"><% order.status %></span></td>
+              <td><span class="label label-<%=order.get_status_c%>"><%= order.get_status %></span></td>
               <td>
                 <div class="sparkbar" data-color="#00a65a" data-height="20"><%= order.created_at %></div>
               </td>
               <td><%= order.restaurant.name  if !order.restaurant.nil? %></td>
+              <td><%=	button_to "edit" ,edit_order_path(order), method: 'get' %></td>
             </tr>
           <% end %>
         <% end %>

@@ -45,8 +45,10 @@
           Action
         </td>
         <td>
-          <%= link_to 'Join', edit_order_path(@order) ,class: 'btn btn-success'  %> |
-          <%= link_to 'skip', orders_path, class: 'btn btn-danger ' %>
+          <%= link_to 'Join', join_order_path(@order) ,class: 'btn btn-success'  %> |
+          <%= link_to 'home', root_path, class: 'btn btn-danger ' %>|
+          <%= link_to 'edit', edit_order_path(@order), class: 'btn btn-warning' %>
+
         </td>
       </tr>
     </table>
