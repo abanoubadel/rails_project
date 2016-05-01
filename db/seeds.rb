@@ -6,10 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-
-15.times do |i|
-  ItemsOrder.create(user_id: rand(1..3),
-                    item_id: rand(1..2),
-                    order_id: rand(1..3))
-end
+AdminUser.create(email:'admin@admin.com',password:'A@123456')
