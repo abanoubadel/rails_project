@@ -136,6 +136,10 @@
   float: left
 }
 
+.basket .head .price {
+  margin-left: 40px;
+}
+
 .basket .head .count {
   float: right
 }
@@ -176,6 +180,12 @@
   -o-transition: width .2s ease;
   -ms-transition: width .2s ease;
   transition: width .2s ease;
+}
+
+.basket ul li span.price {
+  color: black;
+  float: left;
+  margin-left: -75px;
 }
 
 .basket ul li:hover span.name {
