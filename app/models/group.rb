@@ -5,7 +5,4 @@ class Group < ActiveRecord::Base
 	has_attached_file :image
   	validates_attachment :image,
                      content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
-	after_create do |group|
-    	puts "Group Created"
-  	end
 end
