@@ -5,7 +5,7 @@
         	<!-- Add the bg color to the header using any of the bg-* classes -->
         	<div class="widget-user-image">
                 
-                 <%= image_tag @group.image.url, class: "img-circle" %>
+                 <%= image_tag @group.image.url, class: "img-circle", style: 'width:100px' %>
             </div><!-- /.widget-user-image -->
         	<div class="widget-user-header bg-aqua">
                   <span class="widget-user-username"><%=@group.name%></span>
