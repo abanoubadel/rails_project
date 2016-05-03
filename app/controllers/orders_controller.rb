@@ -56,6 +56,8 @@ class OrdersController < ApplicationController
     if (params.has_key?('users'))
       invited_users << User.find_by_name(params.fetch('users'))
     end
+    invited_users.delete(current_user)
+    invited_users.uniq!
     order.users << invited_users
 
     if order.save
