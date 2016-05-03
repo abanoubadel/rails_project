@@ -14,6 +14,9 @@ module ApplicationHelper
     end
   end
 
+  def cur
+    " $ "
+  end
 
 end
 
