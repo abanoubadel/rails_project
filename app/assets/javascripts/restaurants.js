@@ -30,6 +30,7 @@ $(function () {
     })
 ////////////////////////////////////////////////////////////////////
     var i = 0;
+    var total = 0;
     var basket = $('.basket');
     var table = $("#order_tabel");
 
@@ -48,21 +49,40 @@ $(function () {
             addBasket(basket, row)
         } else {
             basket.find('li[data-id=' + row.data('id') + ']').remove();
+            calcPrice();
         }
 
     })
+    basket.delegate('input.count', 'change  ', function () {
+        calcPrice();
+    })
 
+    function calcPrice() {
+        total =0;
+        basket.find('ul li').each(function (k, val) {
+            var item_price = $(val).find('span.price').text();
+            var item_amount = $(val).find('input.count').val();
+            total += parseFloat(item_amount) * parseFloat(item_price);
+            console.log(item_price);
+            console.log(item_amount);
+
+        })
+        $('#total_price').text(total);
+    }
 
     function addBasket(basket, $ele) {
         var data_id = $ele.data('id');
         var price = $ele.data('price');
         var data_name = $ele.data('name');
-
+        console.log(price);
         basket.find("ul").append('<li data-id="' + data_id + '">'
             + '<span class="name">' + data_name + '</span>'
+            + '<span class="price">' + price + '</span>'
             + '<input name="order_items[' + data_id + ']" class="count" value="1" type="text">'
             + '<a href="#" class="delete">&#10005;</a>');
         i++;
+        calcPrice();
+
     }
 
     function changeBtn($el, data_id) {

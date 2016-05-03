@@ -45,7 +45,9 @@
           Action
         </td>
         <td>
-          <%= link_to 'Join', join_order_path(@order) ,class: 'btn btn-success'  %> |
+          <% if !@order.is_owner?current_user %>
+              <%= link_to 'Join', join_order_path(@order), class: 'btn btn-success' %> |
+          <% end %>
           <%= link_to 'home', root_path, class: 'btn btn-danger ' %>|
           <%= link_to 'edit', edit_order_path(@order), class: 'btn btn-warning' %>
 
@@ -53,6 +55,7 @@
       </tr>
     </table>
   </div>
+  <%= render 'restaurants/others_items' %>
 
 </section>
 

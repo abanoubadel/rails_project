@@ -20,7 +20,11 @@
   <div class="content-wrapper">
     <section class="content">
       <section class="content-header">
-        <p id="notice"><%= notice %></p>
+        <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-info"></i> Notice!</h4>
+          <%= notice %>
+        </div>
         <h1>
           <%= yield :head %>
         </h1>

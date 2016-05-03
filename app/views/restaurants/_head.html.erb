@@ -1,6 +1,6 @@
 <div class="widget-user-header" style="color: grey; background-color: white">
   <div class="row box box-widget widget-user-2" style="padding: 10px">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <dev class="widget-user-image">
         <%= render 'restaurant_img', {restaurant: @restaurant, width: "100px"} %>
       </dev>
@@ -9,7 +9,7 @@
       <h5 class="widget-user-desc">
         <%= truncate @restaurant.location, length: 20 %></h5>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="attachment-block " style="padding:25px;margin-top: 10px">
         <%= @restaurant.description %>
       </div>
