@@ -102,6 +102,7 @@ class OrdersController < ApplicationController
     @order = set_order
     @order.items_orders << order_items
     if @order.save
+      Notification.create(@order, :join, current_user, [@order.owner])
       flash[:notice]='done!'
     else
       flash[:notice]='failed!'

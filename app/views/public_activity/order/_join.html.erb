@@ -1,0 +1,10 @@
+<% if activity.trackable %>
+    <% order = activity.trackable %>
+    <%= link_to activity.owner.name, activity.owner if activity.owner %>
+    has joined your
+    <%= link_to "order", order %>
+    from
+    <%= link_to order.restaurant.name,
+                order.restaurant %>
+    <%= time_ago_in_words order.created_at %> ago
+<% end %>
