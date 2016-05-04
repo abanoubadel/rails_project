@@ -26,14 +26,19 @@ class RestaurantsController < ApplicationController
 
   private
   def is_allowed_to_join?
-    order_id = params.fetch(:id)
-    @order = Order.find order_id
-    if !@order.is_user_allowed? current_user
-      flash[:notice]="you aren't invited to this order"
-      redirect_to :root
-    elsif @order.closed?
-      flash[:notice]='sorry this order has been closed'
-      redirect_to :root
+    begin
+      order_id = params.fetch(:id)
+      @order = Order.find(order_id)
+      if !@order.is_user_allowed? current_user
+        flash[:notice]="you aren't invited to this order"
+        redirect_to :root
+      elsif @order.closed?
+        flash[:notice]='sorry this order has been closed'
+        redirect_to :root
+      end
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice]="Not found"
+      redirect_to root_path
     end
   end
 end

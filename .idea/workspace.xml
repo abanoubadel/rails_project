@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d3e29a8-9541-449f-9641-d4b353c7af7d" name="Default" comment="add tag freinds to order">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rails_project.iml" afterPath="$PROJECT_DIR$/.idea/rails_project.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__rails_project.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__rails_project.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
     </list>
     <ignored path="rails_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,10 +25,11 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/rails_project@Development__rails_project.coverage" NAME="Development: rails_project Coverage Results" MODIFIED="1462310781185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
+    <SUITE FILE_PATH="coverage/rails_project@Development__rails_project.coverage" NAME="Development: rails_project Coverage Results" MODIFIED="1462320157535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
     <SUITE FILE_PATH="coverage/rails_project@restaurants_controller.coverage" NAME="restaurants_controller Coverage Results" MODIFIED="1461795672107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/controllers" MODULE_NAME="rails_project" />
     <SUITE FILE_PATH="coverage/rails_project@db_migrate__rails_project.coverage" NAME="db:migrate: rails_project Coverage Results" MODIFIED="1461278996914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
-    <SUITE FILE_PATH="coverage/rails_project@Rails_console__rails_project.coverage" NAME="Rails console: rails_project Coverage Results" MODIFIED="1462310336264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
+    <SUITE FILE_PATH="coverage/rails_project@Rails_console__rails_project.coverage" NAME="Rails console: rails_project Coverage Results" MODIFIED="1462318360457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
+    <SUITE FILE_PATH="coverage/rails_project@Production__rails_project.coverage" NAME="Production: rails_project Coverage Results" MODIFIED="1462319973550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rails_project" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -50,20 +53,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_others_items.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restaurants/_others_items.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.148148">
-              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_group_data.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/groups/_group_data.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1724138">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
               <folding />
             </state>
@@ -74,64 +67,44 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/orders_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+              <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0945946">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <file leaf-file-name="restaurants_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/restaurants_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restaurants/show.html.erb">
+      <file leaf-file-name="application.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6666667">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="join_order.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restaurants/join_order.html.erb">
+      <file leaf-file-name="orders_helper.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/orders_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_head.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restaurants/_head.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.333333">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
+      <file leaf-file-name="404.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/404.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -140,11 +113,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restaurants/index.html.erb">
+      <file leaf-file-name="database.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.481482">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="secrets.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/secrets.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <marker date="1462319503236" expanded="true" signature="903:1063" placeholder="production:" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_helper.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41990668">
+              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -182,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/models_helpers.rb" />
         <option value="$PROJECT_DIR$/app/models/restaurant.rb" />
         <option value="$PROJECT_DIR$/app/admin/restaurant.rb" />
         <option value="$PROJECT_DIR$/app/views/restaurants/restaurant_img.html.coffee" />
@@ -203,7 +207,6 @@
         <option value="$PROJECT_DIR$/app/models/items_order.rb" />
         <option value="$PROJECT_DIR$/app/models/item.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/config/secrets.yml" />
         <option value="$PROJECT_DIR$/db/migrate/20160429235754_add_user_id_to_items_orders.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160430080354_add_id_to_items_orders.rb" />
         <option value="$PROJECT_DIR$/app/views/restaurants/join_order.html.erb" />
@@ -218,7 +221,6 @@
         <option value="$PROJECT_DIR$/app/views/orders/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/order.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/groups/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/_orders_table.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
@@ -226,13 +228,16 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/restaurants.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/restaurants.js" />
         <option value="$PROJECT_DIR$/app/views/orders/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/restaurants/_others_items.html.erb" />
         <option value="$PROJECT_DIR$/app/views/restaurants/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/restaurants/_head.html.erb" />
         <option value="$PROJECT_DIR$/app/views/groups/_group_data.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/config/secrets.yml" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
       </list>
     </option>
   </component>
@@ -279,8 +284,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="RailsProjectView" />
       <pane id="Scratches" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,21 +332,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,90 +368,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="restaurants" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -492,6 +399,29 @@
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: rails_project">
+    <configuration default="false" name="Rails console: rails_project" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
+      <module name="rails_project" />
+      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/bin/rails" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="console" />
+      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="true" />
+      <method />
+    </configuration>
+    <configuration default="false" name="_others_items" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://0.0.0.0:3000/restaurants/_others_items">
+      <method />
+    </configuration>
     <configuration default="false" name="db:migrate: rails_project" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="rails_project" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -517,26 +447,6 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Rails console: rails_project" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
-      <module name="rails_project" />
-      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
-      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
-      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/bin/rails" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="console" />
-      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="true" />
-      <method />
-    </configuration>
     <configuration default="false" name="restaurants_controller" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="rails_project" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -554,9 +464,6 @@
       </EXTENSION>
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/app/controllers/restaurants_controller.rb" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <method />
-    </configuration>
-    <configuration default="false" name="_others_items" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://0.0.0.0:3000/restaurants/_others_items">
       <method />
     </configuration>
     <configuration default="true" type="CapistranoRunConfigurationType" factoryName="Capistrano">
@@ -776,21 +683,20 @@
       <method />
     </configuration>
     <list size="8">
-      <item index="0" class="java.lang.String" itemvalue="Rails.Production: rails_project" />
-      <item index="1" class="java.lang.String" itemvalue="Rails.Development: rails_project" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.test: rails_project" />
-      <item index="3" class="java.lang.String" itemvalue="Rake.spec: rails_project" />
-      <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate: rails_project" />
-      <item index="5" class="java.lang.String" itemvalue="IRB console.Rails console: rails_project" />
-      <item index="6" class="java.lang.String" itemvalue="Ruby.restaurants_controller" />
-      <item index="7" class="java.lang.String" itemvalue="JavaScript Debug._others_items" />
+      <item index="0" class="java.lang.String" itemvalue="IRB console.Rails console: rails_project" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug._others_items" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: rails_project" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: rails_project" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.test: rails_project" />
+      <item index="5" class="java.lang.String" itemvalue="Rake.spec: rails_project" />
+      <item index="6" class="java.lang.String" itemvalue="Rake.db:migrate: rails_project" />
+      <item index="7" class="java.lang.String" itemvalue="Ruby.restaurants_controller" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="IRB console.Rails console: rails_project" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug._others_items" />
-        <item index="2" class="java.lang.String" itemvalue="Ruby.restaurants_controller" />
-        <item index="3" class="java.lang.String" itemvalue="Rake.db:migrate: rails_project" />
+        <item index="1" class="java.lang.String" itemvalue="Ruby.restaurants_controller" />
+        <item index="2" class="java.lang.String" itemvalue="Rake.db:migrate: rails_project" />
       </list>
     </recent_temporary>
   </component>
@@ -849,16 +755,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26251897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985073" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9641791" sideWeight="0.5045593" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6686478" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8038633" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.51560175" sideWeight="0.49544072" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5111441" sideWeight="0.49544072" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -918,34 +824,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160430080354_add_id_to_items_orders.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/items_order.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/notification.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/restaurants/_restaurant_img.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3333334">
-          <caret line="2" column="69" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20160421141106_create_join_table_user_order.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1105,14 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/restaurants_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/groups/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1124,7 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,7 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,7 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1163,7 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,9 +1036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-          <folding>
-            <marker date="1462182669447" expanded="true" signature="2549:2818" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1181,15 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.481482">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/orders_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1213,21 +1065,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.148149">
           <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/restaurants/_others_items.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.148148">
+        <state vertical-scroll-proportion="0.0">
           <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding />
         </state>
@@ -1235,7 +1078,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/restaurants/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.481482">
+        <state vertical-scroll-proportion="0.0">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
@@ -1251,7 +1094,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/restaurants/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667">
+        <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -1259,7 +1102,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/restaurants/_head.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.333333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding />
         </state>
@@ -1275,8 +1118,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/groups/_group_data.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1724138">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1284,15 +1135,65 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/orders_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/config/secrets.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0945946">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1462319503236" expanded="true" signature="903:1063" placeholder="production:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/restaurants_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/orders_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41990668">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding />
         </state>
       </provider>
