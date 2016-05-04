@@ -147,7 +147,8 @@
 /* .head */
 
 .basket ul {
-  padding-bottom: 10px
+  padding-bottom: 10px;
+  margin-left: -40px;
 }
 
 .basket ul li {
@@ -185,7 +186,7 @@
 .basket ul li span.price {
   color: black;
   float: left;
-  margin-left: -75px;
+  margin-left: -40px;
 }
 
 .basket ul li:hover span.name {
@@ -202,28 +203,8 @@
   background-color: #ddd;
 }
 
-.basket ul li button.delete {
-  position: absolute;
-  right: 30px;
-  top: 3px;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  opacity: 0;
-  width: 20px;
-  line-height: 20px;
-  height: 20px;
-  text-align: center;
-  font-size: 11px;
-  border: 0;
-  color: #EE5757;
-  background-color: #eee;
-  border-radius: 3px;
-  cursor: pointer;
-  -webkit-transition: opacity .2s ease;
-  -moz-transition: opacity .2s ease;
-  -o-transition: opacity .2s ease;
-  -ms-transition: opacity .2s ease;
-  transition: opacity .2s ease;
+.basket ul li a.delete {
+margin-left: 40px;
 }
 
 .basket ul li:hover button.delete {
