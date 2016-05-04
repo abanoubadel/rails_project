@@ -17,6 +17,27 @@
           <i class="fa fa-list-alt"></i>
           <h3 class="box-title">Latest Orders</h3>
         </div>
+        <div class="box-body">
+          <ul class="todo-list ui-sortable" style="overflow-x: hidden; max-height: 400px;">
+            <% if @activities.blank? %>
+                <li>
+                  <span class="text">No orders</span>
+                </li>
+            <% else %>
+                <% @orders.each do |order| %>
+                    <% if order %>
+                        <li>
+                          You made order from
+                          <span class="text"><%= order.restaurant.name  %></span>
+                          at
+                          <small class="label label-info"><i class="fa fa-clock-o"></i>
+                            <%= order.created_at  %></small>
+                        </li>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </ul>
+        </div>
         <div class="box-footer">
         </div>
       </div>

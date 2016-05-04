@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: params[:id])
+    @activities = PublicActivity::Activity.order('created_at desc').where(owner_id: params[:id])
     begin
       @user = User.find(params[:id])
     rescue Exception => e
@@ -24,12 +24,13 @@ class UsersController < ApplicationController
 
 
   def timeline
-      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users, owner_type: "User")
+      @activities = PublicActivity::Activity.order('created_at desc').where(owner_id: current_user.followed_users, owner_type: 'User')
+      @orders = Order.where(owner_id:current_user.id).order('created_at desc')
   end
 
 
   def following
-    @title = "Following"
+    @title = 'Following'
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
