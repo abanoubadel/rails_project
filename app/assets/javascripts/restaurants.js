@@ -40,6 +40,7 @@ $(function () {
         data_id = $li.data('id');
         changeBtn(false, data_id);
         $li.remove();
+        calcPrice();
         return false
     });
     table.delegate('button', 'click', function () {
