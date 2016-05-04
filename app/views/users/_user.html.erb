@@ -1,5 +1,5 @@
 <div class="col-md-4" style="margin-top: 20px;">
-  <%= image_tag(@user.avatar.url, class: "img-circle", alt: "User profile picture", :style => 'margin-left: 15px;width: 80px;margin-top:25px;  ') %>
+  <%= image_tag(user.avatar.url, class: "img-circle", alt: "User profile picture", :style => 'margin-left: 15px;width: 80px;margin-top:25px;  ') %>
 	<%= link_to user.name, user , :style => 'padding-left:5px;font-size: 20px;' %>
 		<!-- <div id="follow_form"> -->
  	<% if current_user != user %>
