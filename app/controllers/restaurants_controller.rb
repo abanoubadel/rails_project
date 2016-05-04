@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
   def join_order
     @restaurant = @order.restaurant
     @items = @restaurant.items.all
-    flash[:notice]='add your items to order'
+    flash[:notice]='You can add your items to order'
   end
 
 
@@ -30,14 +30,14 @@ class RestaurantsController < ApplicationController
       order_id = params.fetch(:id)
       @order = Order.find(order_id)
       if !@order.is_user_allowed? current_user
-        flash[:notice]="you aren't invited to this order"
+        flash[:error]="you aren't invited to this order"
         redirect_to :root
       elsif @order.closed?
-        flash[:notice]='sorry this order has been closed'
+        flash[:error]='sorry this order has been closed'
         redirect_to :root
       end
     rescue ActiveRecord::RecordNotFound
-      flash[:notice]="Not found"
+      flash[:error]="Not found"
       redirect_to root_path
     end
   end

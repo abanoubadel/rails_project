@@ -133,7 +133,7 @@ class OrdersController < ApplicationController
 
   def ensure_items
     if (!params.has_key?('order_items'))
-      flash[:notice]='cant creat blank order'
+      flash[:error]='cant creat blank order'
       redirect_to :back
       return false
     end

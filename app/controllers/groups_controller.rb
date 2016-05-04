@@ -41,11 +41,11 @@ class GroupsController < ApplicationController
         Notification.create(@group, :create, current_user, @group.user_ids)
         flash[:notice] = 'Group Created'
       else
-        flash[:notice] = 'Grop name is Already exist'
+        flash[:error] = 'Grop name is Already exist'
       end
     rescue Exception => e
       logger.debug "#{e.class}"
-      flash[:notice] = 'Grop name is Already exist'
+      flash[:error] = 'Grop name is Already exist'
       render 'new'
     end
   end
@@ -69,7 +69,7 @@ class GroupsController < ApplicationController
       end
     rescue Exception => e
       logger.debug "#{e.class}"
-      flash[:notice] = 'Grop name is Already exist'
+      flash[:error] = 'Grop name is Already exist'
       render 'new'
     end
   end

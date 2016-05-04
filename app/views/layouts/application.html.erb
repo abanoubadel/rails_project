@@ -20,11 +20,20 @@
   <div class="content-wrapper">
     <section class="content">
       <section class="content-header">
-        <div class="alert alert-info alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-info"></i> Notice!</h4>
-          <%= notice %>
-        </div>
+        <% if !flash[:notice].blank? %>
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-info"></i> Notice!</h4>
+              <%= notice %>
+            </div>
+        <% end %>
+        <% if !flash[:error].blank? %>
+            <div class="alert alert-error alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-ban"></i> Error!</h4>
+              <%= flash[:error] %>
+            </div>
+        <% end %>
         <h1>
           <%= yield :head %>
         </h1>
