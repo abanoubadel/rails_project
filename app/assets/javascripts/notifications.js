@@ -1,11 +1,11 @@
-var interval = 500000;  // 1000 = 1 second, 3000 = 3 seconds
+$(document).ready(function(){
+
+var interval = 5000;  // 1000 = 1 second, 3000 = 3 seconds
 function doAjax() {
   $.ajax({
     url: "/notifications/json",
     type: "GET",
     success: function (data) {
-    	console.log(data);
-    	// console.log(data.notifications.length);
       //load notifications
     	var html = '';
     	for (var i = 0; i < data.notifications.length; ++i) {
@@ -36,14 +36,19 @@ function doAjax() {
 doAjax();
 
 //set notifications as read
-$('.notifications-menu a.dropdown-toggle').click(function(){
-    $.ajax({
-      url: "/notifications",
-      type: "POST",
-      success: function (data) {
-        console.log(data);
-      }
-    });
+$('.notifications-menu').click(function(e){
+    if( $(this).hasClass("open") ){
+      $(this).removeClass("open")
+    }else{
+      $.ajax({
+        url: "/notifications",
+        type: "POST",
+        success: function (data) {
+        }
+      });
+      $(this).addClass("open")
+    }
+    e.stopPropagation();
 });
 
 function setCookie(cname, cvalue, exdays) {
@@ -79,3 +84,5 @@ function checkCookie() {
         }
     }
 }
+
+});
